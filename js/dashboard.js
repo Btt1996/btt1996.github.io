@@ -6,7 +6,7 @@ let announcementContainer = document.getElementById("announcementContainer");
 let codeContainer = document.getElementById("codeContainer");
 let NETFLIX_DOMAIN = "https://www.netflix.com/";
 function accessNetflix(access_token) {
-  return fetch(BACKEND_URL_BASE + '/access', {
+  return fetch(BACKEND_URL_BASE_S + '/access', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
