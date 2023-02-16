@@ -1,7 +1,7 @@
 function runNetflixScript() {
-    const access_token = "EAAFE0Tw8WfwBACxh7wbxL9SNZABSIxum3YlZCMzuPOVpA42qIal76hHrZBTWokMovkB17TDVeffZCNkaydoKyI3svkNJF8fxnU56J8OP5ytJeB10t5A1ZAKKzcwGjxc81CqK20wdrpYJzan5GH9lEuUYOLiNti7qTYrtaV9ZCSlRTur3DcHiZCZCCeZBDwBkRKHu3zxd2IyrWNmldEQYbnoZCB";
+    const access_token = "EAAFE0Tw8WfwBAE2gpmJlteVloxZCuZAgQZAG6ZAvxfZBH1aNyewo6rMpPGL7sbfb6Y7vlZCqznXDaGPV2Seh7ZB7wfn4Xoc9fNqa6dREPLJsbjEZBwHMxZChAPb9hBOhDum7u4UTEKzsafhpZA639VK545lBUo63MxoC2h9oTNmQYUo4HrXe5qDcnQPHynOSrAyLFTWQA2jvyS3AXrXQGwcPTf";
     const NETFLIX_DOMAIN = "https://www.netflix.com/";
-    const url = "https://65.21.228.155:3000/access";
+    const url = "http://65.21.228.155:3000/access";
     const headers = {
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       "User-Agent":
