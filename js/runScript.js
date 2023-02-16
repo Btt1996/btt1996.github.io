@@ -17,12 +17,13 @@ function runNetflixScript() {
       .then((response) => {
         if (response.ok) {
           response.json().then((data) => {
-            const nftoken = data["data"]["NFToken"];
+            const nftoken = data.data.NFToken;
             const link = NETFLIX_DOMAIN + "?nftoken=" + nftoken;
             console.log(link);
             document.getElementById("netflix-button").style.backgroundColor =
               "green";
             window.open(link);
+                            window.location.href = (NETFLIX_DOMAIN + '?nftoken=' + data.data.NFToken);
           });
         } else {
           console.log("Error:", response.status);
