@@ -52,36 +52,7 @@
         HEADER SECTION 
         =========================== -->
         <header id="home">
-		  <script type="text/javascript">
-    function logVisit() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var ip = JSON.parse(xmlhttp.responseText).ip;
-                var date = new Date().toLocaleString();
-                var logdata = date + ' - ' + ip + '\n';
-                var file = 'vs.txt';
-                var blob = new Blob([logdata], {type: 'text/plain'});
-                var formData = new FormData();
-                formData.append('file', blob, file);
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://api.github.com/repos/btt1996/btt1996.github.io/contents/' + file, true);
-                xhr.setRequestHeader('Authorization', 'token ghp_17sTyTveCGJ6Di8XxVYVxfQV6BZDJDwGAU');
-                xhr.onload = function() {
-                    if (xhr.status === 201) {
-                        console.log('Visitor logged.');
-                    } else {
-                        console.log('Error logging visitor.');
-                    }
-                };
-                xhr.send(formData);
-            }
-        };
-        xmlhttp.open('GET', 'https://api.ipify.org?format=json', true);
-        xmlhttp.send();
-    }
-    logVisit();
-</script>
+		
 
 		    <!-- creative menu -->
             <div class="container-fluid">
