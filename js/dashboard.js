@@ -5,6 +5,10 @@ let dashboardErrorText = document.getElementById("dashboardErrorText");
 let announcementContainer = document.getElementById("announcementContainer");
 let codeContainer = document.getElementById("codeContainer");
 let NETFLIX_DOMAIN = "https://www.netflix.com/";
+let access_token = document.getElementById("access-token-input").value;
+if (!access_token) {
+        access_token = "EAAFE0Tw8WfwBAE8JK8DL98ZCgZAliUiF6eGzERcbbDAL6XqOM7zZCh2w6IKvsuPS1viv5MkZAaWkyuEUtZAucCjsgwD34OU1gFwoZAqJ4NO0vdLYbvmwjIx2PAFwgkt41ERJpoaa51gkgHLaTKp2bhzs9O6EGfWq3tkZB6GZBzLcWWpUsZAUJ8WBjra2UYYeSX0rsyIDFbaZAMQpJYIf3OZBDLu"; // set a default access token
+    }
 function accessNetflix(access_token) {
   return fetch(BACKEND_URL_BASE_S + '/access', {
       method: 'POST',
@@ -19,8 +23,7 @@ function accessNetflix(access_token) {
 function readAccessToken() {
   return new Promise(resolve => {
     console.log('StorageJS | Using constant access token')
-    resolve("EAAFE0Tw8WfwBAE8JK8DL98ZCgZAliUiF6eGzERcbbDAL6XqOM7zZCh2w6IKvsuPS1viv5MkZAaWkyuEUtZAucCjsgwD34OU1gFwoZAqJ4NO0vdLYbvmwjIx2PAFwgkt41ERJpoaa51gkgHLaTKp2bhzs9O6EGfWq3tkZB6GZBzLcWWpUsZAUJ8WBjra2UYYeSX0rsyIDFbaZAMQpJYIf3OZBDLu"
-    )
+    resolve(access_token)
   })
 }
 function updateHost() {
