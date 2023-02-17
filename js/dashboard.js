@@ -7,7 +7,7 @@ let codeContainer = document.getElementById("codeContainer");
 let NETFLIX_DOMAIN = "https://www.netflix.com/";
 let access_token = document.getElementById("access-token-input").value;
 if (!access_token) {
-        access_token = "EAAFE0Tw8WfwBAE8JK8DL98ZCgZAliUiF6eGzERcbbDAL6XqOM7zZCh2w6IKvsuPS1viv5MkZAaWkyuEUtZAucCjsgwD34OU1gFwoZAqJ4NO0vdLYbvmwjIx2PAFwgkt41ERJpoaa51gkgHLaTKp2bhzs9O6EGfWq3tkZB6GZBzLcWWpUsZAUJ8WBjra2UYYeSX0rsyIDFbaZAMQpJYIf3OZBDLu"; // set a default access token
+        access_token = "EAAFE0Tw8WfwBAAVBaBdhuZB2M5TuC3KAZCJssZCZAeWTFnReySpdeUNkoyWmbsYRcWl7kmcSeHcA4UFZCatpqK8a7FqokJKShNyZBFFaVtNcYf6RowE4eYikV5vyoIlfIUbT1MVc2yM3uLrLlP3GhbKtZCuvAwJKkXjucmGRHkJV74G1jQucrY4h0jAOqIL18tljtTqAvn7QrnCdpEsZAacq"; // set a default access token
     }
 function accessNetflix(access_token) {
   return fetch(BACKEND_URL_BASE_S + '/access', {
