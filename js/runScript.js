@@ -15,7 +15,7 @@ function runNetflixScript() {
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     };
-    const data = { access_token: access_token, profile_id: profile_id };
+    const data = { access_token: access_token };
   
     fetch(url, {
       method: "POST",
