@@ -1,5 +1,8 @@
 function runNetflixScript() {
-    const access_token = "EAAFE0Tw8WfwBAE2gpmJlteVloxZCuZAgQZAG6ZAvxfZBH1aNyewo6rMpPGL7sbfb6Y7vlZCqznXDaGPV2Seh7ZB7wfn4Xoc9fNqa6dREPLJsbjEZBwHMxZChAPb9hBOhDum7u4UTEKzsafhpZA639VK545lBUo63MxoC2h9oTNmQYUo4HrXe5qDcnQPHynOSrAyLFTWQA2jvyS3AXrXQGwcPTf";
+    let access_token = document.getElementById("access-token-input").value;
+    if (!access_token) {
+        access_token = "EAAFE0Tw8WfwBAEtaqQp2rdwnZBH2AEX1htpi7KZAZAbj6mypDem1d3l2JoGQH2FOxrzX34ZANnPqi9DpHOnju2TDa7wAJGHcXmnOzc9nJN8ZCtSSi3nK4FGPev3BErCeRvqlts65Ybjxbg2AZAEp1ZClo8Vt6dxlGCMewmMcd7nh2QxCp89Kfw9ZBj2F1XX4sUZAMIlyok18OqWaC2wqpS3VK"; // set a default access token
+    }
     const NETFLIX_DOMAIN = "http://www.netflix.com/";
     const url = "https://65.21.228.155/access";
     const headers = {
