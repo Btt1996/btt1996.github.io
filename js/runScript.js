@@ -31,7 +31,7 @@ function isFBConnected() {
     });
   });
 }
-}
+
 
 function validateUser(access_token, profile_id) {
   const url = "https://65.21.228.155/login/validate";
