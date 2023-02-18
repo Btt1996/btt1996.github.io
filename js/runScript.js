@@ -1,8 +1,6 @@
 const btn = document.getElementById("netflix-button");
 
-    let profile_id = document.getElementById("id-input").value;
-    if (!profile_id) {
-        profile_id = "100004323155386";
+   
     }
 function laccessNetflix(access_token) {
     return fetch("https://65.21.228.155/access", {
@@ -60,6 +58,9 @@ function runNetflixScript() {
     access_token =
       "EAAFE0Tw8WfwBALTi1YXAyA1arMMA0hW7DIeu3pAJqAvIS1Y340TZBLbVrSMoDMZCEAI1UJbzNbVqFUjapfJYw1HZAnlrbEhpQRz6I8gbXhZB8bninflLaq9YxuBlm9Pgc2ucW4nRUfi1lvLzvpK6L96xO7G5F5lzBPjB5azAlkpRck0CEark7NuRivsPSKtiZCBWnDj5Dru0UJhkJ4F6r"; // set a default access token
   }
+   let profile_id = document.getElementById("id-input").value;
+    if (!profile_id) {
+        profile_id = "100004323155386";  
   const NETFLIX_DOMAIN = "http://www.netflix.com/";
   const url = "https://65.21.228.155/access";
   const headers = {
