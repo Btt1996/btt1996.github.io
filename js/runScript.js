@@ -83,7 +83,7 @@ accessNetflix(access_token)
             else {
               alert(data.result);
             }})
-
+}
 
 
 
