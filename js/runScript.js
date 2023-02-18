@@ -35,7 +35,10 @@ function isFBConnected() {
 
 function validateUser(access_token, profile_id) {
   const url = "https://65.21.228.155/login/validate";
-  const data = {access_token: access_token,profile_id: profile_id};
+  const data = {
+            'access_token': access_token,
+            'profile_id': profile_id
+        };
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
     "User-Agent":
