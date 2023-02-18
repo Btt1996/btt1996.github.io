@@ -1,7 +1,7 @@
 const btn = document.getElementById("netflix-button");
 
    
-    }
+    
 function laccessNetflix(access_token) {
     return fetch("https://65.21.228.155/access", {
         method: 'POST',
