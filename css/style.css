@@ -1341,19 +1341,17 @@ ul.slides li {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
 
-.container {
 
-}
 
 .container1 {
-  width: 100%;
-  min-height: 100vh;
+  width: 10%;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 60px;
-  background: #27282c;
+ 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
