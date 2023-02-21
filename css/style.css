@@ -1351,7 +1351,7 @@ ul.slides li {
   align-items: center;
   flex-wrap: wrap;
   gap: 2px;
- 
+  flex-direction: column;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -1404,91 +1404,11 @@ ul.slides li {
     0 0 60px var(--color);
 }
 
-.buttonl span {
-  position: absolute;
-  background: var(--color);
-  pointer-events: none;
-  border-radius: 1px;
-  box-shadow: 0 0 5px var(--color),
-    0 0 6px var(--color),
-    0 0 1px var(--color),
-    0 0 8px var(--color),
-    0 0 3px var(--color);
-  transition: 0.5s ease-in-out;
-  transition-delay: 0.25s;
-}
-
-.buttonl:hover span {
-  opacity: 0;
-  transition-delay: 0s;
-}
-
-.buttonl span:nth-child(1),
-.buttonl span:nth-child(3) {
-  width: 20px;
-  height: 2px;
-}
-
-.buttonl:hover span:nth-child(1),
-.buttonl:hover span:nth-child(3) {
-  transform: translateX(0);
-}
-
-.buttonl span:nth-child(2),
-.buttonl span:nth-child(4) {
-  width: 4px;
-  height: 20px;
-}
-
-.buttonl:hover span:nth-child(1),
-.buttonl:hover span:nth-child(3) {
-  transform: translateY(0);
-}
-
-.buttonl span:nth-child(1) {
-  top: calc(50% - 2px);
-  left: -30px;
-  transform-origin: left;
-}
-
-.buttonl:hover span:nth-child(1) {
-  left: 50%;
-}
-
-.buttonl span:nth-child(3) {
-  top: calc(50% - 2px);
-  right: -30px;
-  transform-origin: right;
-}
-
-.buttonl:hover span:nth-child(3) {
-  right: 50%;
-}
-
-.buttonl span:nth-child(2) {
-  left: calc(50% - 2px);
-  top: -30px;
-  transform-origin: top;
-}
-
-.buttonl:hover span:nth-child(2) {
-  top: 50%;
-}
-
-.buttonl span:nth-child(4) {
-  left: calc(50% - 2px);
-  bottom: -30px;
-  transform-origin: bottom;
-}
-
-.buttonl:hover span:nth-child(4 ) {
-  bottom: 50%;
-}
 
 .button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px; /* adjust as needed */
+  margin-top: 1px; /* adjust as needed */
 }
         
