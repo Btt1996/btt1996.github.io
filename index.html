@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Taboubi Ahmed - Full Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <!-- Bootstrap -->
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font-Awesome -->
+  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Lightbox -->
+  <link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
+  <!-- Text Rotator-->
+  <link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
+  <!-- FlexSlider -->
+  <link href="assets/flexslider/flexslider.css" rel="stylesheet">
+  <!-- Theme Style -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Animations -->
+  <link href="css/animate.css" rel="stylesheet">
+
+  <link href="img/btt.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body id="top">
+
+  <!-- ****************************** Preloader ************************** -->
+  <div id="preloader">
+    <h1 id="loading-message" style="
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+      ">
+      A<span style="color:#E04343;">H</span>MED<br />
+      <span> T<span style="color:#002fff">AB</span>OUBI</span>
+    </h1>
+    <script>
+      window.addEventListener('load', function () {
+        document.getElementById('preloader').classList.add('loaded');
+      });
+    </script>
+  </div>
+
+
+
+  <!-- ==========================
+        HEADER SECTION 
+        =========================== -->
+  <header id="home">
+
+
+    <!-- creative menu -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="menu-wrap">
+          <nav class="menu">
+            <!-- Menu Links -->
+            <div class="icon-list">
+              <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+              <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
+              <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>SKills</span></a>
+              <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
+              <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Other</span></a>
+              <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+              <button id="accessNetflixBtn"><i class="sign-in icon"></i> btt</button>
+            </div>
+          </nav>
+        </div>
+        <button class="menu-button" id="open-button"></button><!-- menu button -->
+      </div><!--/row-->
+    </div><!--/container-->
+    <!-- Header Image -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <!-- Slider Button (don't edit!)-->
+        <div class="row">
+          <div class="col-md-12 text-right navicon">
+            <a id="nav-toggle" class="nav_slide_button" href="index.html#"><span></span></a>
+          </div>
+        </div>
+        <!-- HEADER HEADLINE -->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-1 inner">
+            <h1 class="animated fadeInDown">
+              A<span style="color:#E04343;">h</span>med<br />
+              <span>T<span style="color:#002fff">ab</span>oubi</span>
+            </h1><!-- Title -->
+            <h3 class="animated fadeInUp delay-05s"><span class="rotate">Strategic Analyst,Fullstack,Problem-Solving
+                ,Cyber security,Artificial intelligence,</span></h3><!-- Text Rotator -->
+          </div>
+        </div>
+        <!-- Learn More Button -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
+              <p>SEE MORE</p>
+              <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Header Image End -->
+  </header>
+  <!-- ==========================
+        HEADER SECTION END  
+        =========================== -->
+
+
+
+
+  <!-- ==========================
+        ABOUT SECTION  
+        =========================== -->
+  <section class="intro text-center section-padding color-bg" id="about">
+    <div class="container">
+      <!-- WELCOME TEXT -->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 wp1">
+          <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
+          <!-- about / welcome text -->
+          <p>I am a Full-Stack Developer with over a decade of experience, Diplomed in camputer science , proficient in
+            solving complex problems through creative solutions, My skills encompass Front-End and Back-End application
+            development, ethical hacking and network security, I also have extensive knowledge in Data Analytics and
+            experience working with large datasets, Currently studying Artificial Intelligence and Machine Learning
+            techniques to offer efficient solutions, My goal is to create advanced, user-friendly and logical
+            applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="certification-section" id="porto">
+    <div class="certification-section">
+      <h2>My Certifications and Badges</h2>
+      <h1>Click on the Badge to see the diplome: </h1>
+      <div class="con1">
+        <div class="certification-badges">
+
+          <div class="container1">
+            <a href="img/Googlec.jpg" data-lightbox="certifications" title="Certification 1">
+              <img src="img/googlebadge.jpg" alt="Certification 1">
+              <div class="button-container">
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://skillshop.credential.net/1a24460a-401a-47e5-8877-5a45e653b679">
+
+                  Click to Verify
+                </a>
+              </div>
+          </div>
+        </div>
+        <div class="certification-badges">
+          <div class="container1">
+            <a href="img/en.png" data-lightbox="certifications" title="Certification 2">
+              <img src="img/enc.png" alt="Certification 2">
+              <div class="button-container">
+
+                <a class="buttonl" style="--color:#E04343;" href="https://www.efset.org/cert/NEKY3J">
+
+                  Click to Verify
+                </a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="con1">
+        <div class="certification-badges">
+          <div class="container1">
+            
+            <a href="img/c.png" data-lightbox="certifications" title="Certification 3">
+              <img src="img/cc.png" alt="Certification 3">
+
+              <div class="button-container">
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://www.codingame.com/certification/q7nl6keg-kzqr-bcMiMxeQ">
+               
+                  Click to Verify
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+          <div class="certification-badges">
+          <div class="container1">
+            <a href="img/py2c.PNG" data-lightbox="certifications" title="Certification 4">
+              <img src="img/cc2.png" alt="Certification 4">
+              <div class="button-container">
+
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://www.codingame.com/certification/HqR-t7FA0czwc3VBVLpDmA">
+
+                  CLICK TO VERIFY
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="con1">
+        <div class="certification-badges">
+
+          <br>
+        <div class="certification-badges">
+          <div class="container1">
+            <a href="img/javac.PNG" data-lightbox="certifications" title="Certification 5">
+              <img src="img/soft.PNG" alt="Certification 5">
+
+              <div class="button-container">
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://www.studysection.com//users/socialMedia/NTAyOTE1/YWhtZWQ5Ni50dW5AZ21haWwuY29t">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Click to Verify
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+          <div class="certification-badges">
+          <div class="container1">
+            <a href="img/pythc.PNG" data-lightbox="certifications" title="Certification 6">
+              <img src="img/soft.PNG" alt="Certification 6">
+
+              <div class="button-container">
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://www.studysection.com/users/socialMedia/NTAyOTE3/YWhtZWQ5Ni50dW5AZ21haWwuY29t">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Click to Verify
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+          <div class="certification-badges">
+          <div class="container1">
+            <a href="img/softc.PNG" data-lightbox="certifications" title="Certification 7">
+              <img src="img/soft.PNG" alt="Certification 7">
+              <div class="button-container">
+                <a class="buttonl" style="--color:#E04343;"
+                  href="https://www.studysection.com/users/socialMedia/NTEwNjAx/YWhtZWQ5Ni50dW5AZ21haWwuY29t">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Click to Verify
+                </a>
+              </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  </section>
+  </div>
+
+
+
+  <!-- ==========================
+        SERVICE SECTION 
+        =========================== -->
+  <section class="features text-center section-padding" id="service">
+    <div class="container">
+      <!-- Headline -->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="arrow">I do amazing things </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="services">
+            <!-- Service Box 1 -->
+            <div class="col-md-4 wp2 item">
+              <div class="icon">
+                <i class="fa fa-camera"></i><!-- Icon -->
+              </div>
+              <h2>Data Analytics and Big Data</h2><!-- Title -->
+              <p>I am proficient in analyzing large datasets to extract insights and information that can inform
+                decision-making. My expertise in big data enables me to work with massive datasets, ensuring that I can
+                identify patterns, trends, and correlations that are important for understanding and solving complex
+                problems.</p><!-- Description -->
+            </div>
+            <!-- Service Box 2 -->
+            <div class="col-md-4 wp2 item delay-05s">
+              <div class="icon">
+                <i class="fa fa-desktop"></i><!-- Icon -->
+              </div>
+              <h2>Full-Stack Development</h2><!-- Title -->
+              <p>I am a skilled full-stack developer with a passion for discovering creative solutions to complex
+                problems. I have a deep understanding of both front-end and back-end technologies, allowing me to build
+                and integrate applications that are both user-friendly and efficient.</p><!-- Description -->
+            </div>
+            <!-- Service Box 3 -->
+            <div class="col-md-4 wp2 item delay-1s">
+              <div class="icon">
+                <i class="fa fa-cubes"></i><!-- Icon -->
+              </div>
+              <h2>Cybersecurity</h2><!-- Title -->
+              <p>My knowledge as a cybersecurity advisor and my expertise in ethical hacking, network security, and
+                exploitation techniques make me an asset to any organization. I have a strong understanding of security
+                best practices and a keen eye for identifying potential vulnerabilities, allowing me to help
+                organizations protect their networks and data.</p><!-- Description -->
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <div align="center">
+    <div class="row">
+      <div class="col-md-12"><br /><br />
+        <h1 class="arrow">Languages and Tools: </h1>
+      </div>
+    </div>
+    <a href="https://pytorch.org/" target="_blank"> <img align="center"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/pytorch/pytorch.svg"
+        alt="pytorch" height="75px" /> </a>
+    <a href="https://www.tensorflow.org" target="_blank"> <img align="center"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/tensorflow/tensorflow.svg"
+        alt="tensorflow" height="75px" /> </a>
+    <a href="https://www.python.org" target="_blank"><img align="center" alt="Python" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/python/python.svg"></a>
+    <a href="https://developer.android.com" target="_blank"> <img align="center" alt="Android" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/android/android.svg">
+    </a>
+    <a href="https://kotlinlang.org" target="_blank"><img align="center" alt="Kotlin" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/kotlin/kotlin.svg"></a>
+    <a href="https://www.java.com" target="_blank"><img align="center" alt="Java" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/java/java.svg"></a>
+    <a href="https://firebase.google.com/" target="_blank"> <img align="center"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/firebase/firebase.svg"
+        alt="firebase" height="75px" /> </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img align="center"
+        alt="JavaScript" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/javascript/javascript.svg">
+    </a>
+    <a href="https://www.typescriptlang.org/" target="_blank"><img align="center" alt="Typescirpt" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/typescript/typescript.svg"></a>
+    <a href="https://reactjs.org/" target="_blank"> <img align="center" alt="React" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/react/react.svg"></a>
+    <a href="https://nodejs.org" target="_blank"><img align="center" alt="Node.js" height="75px"
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/node/node.svg"></a>
+    <a href="https://git-scm.com/" target="_blank"> <img
+        src="https://raw.githubusercontent.com/rahul-jha98/github_readme_icons/main/language_and_tools/square/git-scm/git-scm.svg"
+        align="center" alt="git" height='75px' /> </a>
+  </div>
+  <br>
+  <br /><br /><br />
+
+
+
+  <div class="container-fluid">
+    <!-- About 1 -->
+    <div class="row color-bg">
+      <div class="col-md-6 nopadding features-intro-img">
+        <div class="about-image" style="background-image:url(img/about1.png)"></div><!-- about image 1 -->
+      </div>
+      <div class="col-md-6 about-text">
+        <h6>As a Data Analyst:</h6><!-- headline-->
+        <p> I have a deep understanding of data analysis, utilizing various tools and techniques to gain valuable
+          insights from substantial datasets. With my knowledge of SQL,MongoDb, and Python, I am able to perform complex
+          data manipulations, as well as statistical analysis, to help organizations make informed decisions. My
+          experience with big data technologies such as Hadoop, Spark, and NoSQL databases allow me to effectively
+          handle large volumes of data and present it in an understandable manner.</p><br><!-- About Text 1 -->
+      </div>
+    </div>
+    <!-- About 2 -->
+    <div class="row">
+      <div class="col-md-6 about-text">
+        <h6>As a Full-Stack Developer:</h6><!-- Headline -->
+        <p>I am well-versed in front-end technologies such as HTML, CSS, and JavaScript, and I have a strong background
+          in back-end development using PHP, python, and Java. I have a passion for crafting intuitive user interfaces
+          and creating seamless user experiences. I am also experienced in working with various MVC frameworks and
+          integrating with APIs.</p><br><!-- About Text 2 -->
+      </div>
+      <div class="col-md-6 nopadding features-intro-img">
+        <div class="about-image" style="background-image:url(img/about2.png)"></div><!-- about image 2 -->
+      </div>
+    </div>
+    <!-- About 3 -->
+    <div class="row color-bg">
+      <div class="col-md-6 nopadding features-intro-img">
+        <div class="about-image" style="background-image:url(img/about3.png)"></div><!-- about image 3 -->
+      </div>
+      <div class="col-md-6 about-text">
+        <h6>As an AI Learner:</h6><!-- Headline-->
+        <p>I am currently studying and exploring the field of artificial intelligence and machine learning. My aim is to
+          expand my knowledge in these cutting-edge technologies and apply them to real-world problems. I have a solid
+          understanding of algorithms such as neural networks, decision trees, and k-means clustering. I am familiar
+          with programming languages such as Python and its various libraries such as TensorFlow and PyTorch, and I am
+          actively learning more to stay ahead of the curve. </p><br><!-- About Text 3 -->
+      </div>
+    </div>
+  </div>
+  <!-- ==========================
+        ABOUT SECTION END
+        =========================== -->
+
+
+  <br /><br /><br /><br /><br />
+  <section class="text-center section-padding" id="portfolio">
+    <div class="container">
+      <!-- Headline -->
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="arrow" align="center">Some Repositories: </h2><br /><br />
+        </div>
+      </div>
+      <div width="100%" align="center">
+        <a align="center" href="https://github.com/Btt1996/risks-of-log4j-and-exploiting"
+          title="Understanding log4j Security Risks"><img align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=risks-of-log4j-and-exploiting&theme=moltack&border_color=E04343&border_radius=20"></a><a
+          align="right" href="https://github.com/btt1996/Btt-AI_HandReading" title="AI_HandReading"><img align="center"
+            height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=Btt-AI_HandReading&theme=moltack&border_color=E04343&border_radius=20"></a>
+      </div>
+      <br /><br /><br /><br /><br /><br />
+      <div width="100%" align="center">
+        <a align="center" href="https://github.com/Btt1996/Ai-log4j-vulnerabilities-beta"
+          title="Ai-log4j-vulnerabilities-beta"><img align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=Ai-log4j-vulnerabilities-beta&theme=moltack&border_color=E04343&border_radius=20"></a>
+        <a align="center" href="https://github.com/btt1996/ChatGPT-vocal-assistant" title="ChatGPT-vocal-assistant"><img
+            align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=ChatGPT-vocal-assistant&theme=moltack&border_color=E04343&border_radius=20"></a>
+      </div>
+      <br /><br /><br /><br /><br /><br />
+      <div width="100%" align="center">
+        <a align="center" href="https://github.com/btt1996/Network-Traffic-Analysis"
+          title="Network-Traffic-Analysis"><img align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=Network-Traffic-Analysis&theme=moltack&border_color=E04343&border_radius=20"></a>
+        <a align="center" href="https://github.com/btt1996/Voice-Transfer-using-GANs"
+          title="Voice-Transfer-using-GANs"><img align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=Voice-Transfer-using-GANs&theme=moltack&border_color=E04343&border_radius=20"></a>
+      </div>
+      <br /><br /><br /><br /><br /><br />
+      <div width="100%" align="center">
+        <a align="center" href="https://github.com/btt1996/machine-learning-codes" title="Machine learning codes"><img
+            align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=machine-learning-codes&theme=moltack&border_color=E04343&border_radius=20"></a>
+        <a align="center" href="https://github.com/btt1996/sql-to-mongo-converter.py" title="SQL-MongoDb converter"><img
+            align="center" height="115"
+            src="https://github-readme-stats.vercel.app/api/pin/?username=btt1996&repo=sql-to-mongo-converter.py&theme=moltack&border_color=E04343&border_radius=20"></a>
+      </div>
+      <br><br><br><br><br><br>
+      <h4 align="center">
+        <a href="https://github.com/btt1996?tab=repositories" title="Show Repositories">Show More </a>
+      </h4>
+      <br /><br />
+
+      <p align="center">
+        <img src="https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg" alt="Github Stats" />
+      </p>
+    </div>
+
+
+    <!-- PORTFOLIO ITEM 1 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="overlay-effect effects clearfix">
+        <div class="img">
+          <a href="img/portfolio/portfolio-01-large.jpg" data-lightbox="roadtrip" title="Project One - Lorem Ipsum"><img
+              class="grayscale" src="img/portfolio/portfolio-01-thumbnail.jpg" alt="Portfolio Item">
+            <span class="before-text">Understanding log4j Security Risks</span>
+            <span class="after-text">Log4j is a popular logging framework for Java, but it is important to be aware of
+              the security risks that can be associated with its use, especially in a production environment.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- PORTFOLIO ITEM END -->
+
+    <!-- PORTFOLIO ITEM 2 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="overlay-effect effects clearfix">
+        <div class="img">
+          <a href="img/portfolio/portfolio-02-large.jpg" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum"><img
+              class="grayscale" src="img/portfolio/portfolio-02-thumbnail.jpg" alt="Portfolio Item">
+            <span class="before-text">Understanding log4j Security Risks</span>
+            <span class="after-text">After Hover</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- PORTFOLIO ITEM END -->
+
+    <!-- PORTFOLIO ITEM 3 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="overlay-effect effects clearfix">
+        <div class="img">
+          <a href="img/portfolio/portfolio-03-large.jpg" data-lightbox="roadtrip"
+            title="Project Three - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-03-thumbnail.jpg"
+              alt="Portfolio Item">
+            <span class="before-text">Understanding log4j Security Risks</span>
+            <span class="after-text">After Hover</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- PORTFOLIO ITEM END -->
+  </section>
+
+
+
+
+
+  <!-- ==========================
+        CUSTOM SPACER
+        =========================== -->
+  <div class="spacer-cta text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="index.html#contact" class="outline-btn">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================
+        BLOG SECTION 
+        =========================== -->
+  <section class="text-center section-padding" id="blog">
+    <div class="container">
+      <!-- Headline -->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="arrow">Other <span>Simple</span> Projects</h1>
+        </div>
+      </div><br><br>
+
+      <!-- Blog Slider -->
+      <div class="row">
+        <div id="blogSlider">
+          <ul class="slides">
+            <li>
+              <!-- Blog Entry 1 -->
+              <div class="col-md-4 wp4">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Minds</h2><!-- Headline -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
+              </div>
+              <!-- Blog Entry 2 -->
+              <div class="col-md-4 wp4 delay-05s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Hearts</h2><!-- Headline -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
+              </div>
+              <!-- Blog Entry 3 -->
+              <div class="col-md-4 wp4 delay-1s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Ideas</h2><!-- Headline -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
+              </div>
+            </li>
+            <li>
+              <!-- Blog Entry 4 -->
+              <div class="col-md-4 wp4">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Minds</h2><!-- Headline -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
+              </div>
+              <!-- Blog Entry 5 -->
+              <div class="col-md-4 wp4 delay-05s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Hearts</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+              <!-- Blog Entry 6 -->
+              <div class="col-md-4 wp4 delay-1s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                  </div>
+                </div>
+                <br>
+                <h2>Creative Ideas</h2><!-- Headline -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar
+                  imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==========================
+        BLOG SECTION END
+        =========================== -->
+
+
+
+  <!-- ==========================
+        CLIENT SECTION 
+        =========================== -->
+  <div class="container-fluid">
+    <div class="row color-bg">
+      <!-- Left Image -->
+      <div class="col-md-6 nopadding features-intro-img wow fadeInLeft">
+        <div class="about-image" style="background-image:url(img/clients.png)"></div>
+      </div>
+      <!-- Clients / Testimonials -->
+      <div class="col-md-6 nopadding about-text">
+        <h6>Expanding My Skillset</h6>
+        <div id="clientSlider">
+          <ul class="slides">
+            <li>
+              <p>As a dedicated learner, I am constantly expanding my skillset in the field of artificial intelligence
+                and machine learning. With a strong foundation in programming languages such as Python, Java, and
+                JavaScript, I am well-equipped to tackle complex projects in this rapidly growing area.</small></p>
+            </li>
+            <li>
+              <p>In my studies, I have become proficient in various machine learning techniques such as supervised and
+                unsupervised learning, decision trees, and deep neural networks. I have also gained experience in using
+                popular AI frameworks such as TensorFlow and PyTorch, and have a solid understanding of big data and
+                data analytics.</small></p>
+            </li>
+            <li>
+              <p>I am passionate about using AI and machine learning to tackle real-world problems and find solutions
+                that can have a positive impact on society. Whether it's developing predictive models or automating
+                processes, I am dedicated to staying at the forefront of this exciting field and continuing to grow my
+                skills and knowledge.</small></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==========================
+        CLIENTS SECTION END
+        =========================== -->
+
+
+
+
+
+  <!-- ==========================
+        NEWSLETTER SECTION 
+        =========================== -->
+  <section>
+    <div class="container-fluid">
+      <div class="row color-bg">
+        <div class="col-md-6 nopadding subscribe text-center">
+          <h1><i class="fa fa-paper-plane"></i><span>keep your Email</span></h1><!-- Heading -->
+          <form action="index.html#">
+            <input type="text" name="" value="" placeholder="" required><!-- E-Mail -->
+
+            <button id="accessNetflixBtn"><i class="sign-in icon"></i> btt</button>
+          </form>
+        </div>
+        <div class="col-md-6 nopadding features-intro-img">
+          <div class="about-image" style="background-image:url(img/newsletter.png)"></div><!-- Right Image -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==========================
+        NEWSLETTER SECTION END
+        =========================== -->
+
+
+  <br><br>
+  <!-- ==========================
+        CONTACT SECTION
+        =========================== -->
+  <section class="text-center section-padding contact-wrap" id="contact">
+    <!-- To Top Button -->
+    <a href="index.html#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+    <div class="container">
+      <!-- Headline -->
+      <div class="row">
+        <p align="center">
+          <img src="https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg" alt="Github Stats" />
+        </p>
+        <div class="col-md-12">
+          <h1 class="arrow">Drop <span>me</span> a line</h1>
+        </div>
+      </div>
+      <div class="row contact-details">
+        <!-- Adress Box -->
+        <div class="col-md-4">
+          <div class="dark-box box-hover">
+            <h2><i class="fa fa-map-marker"></i><span>Work Links</span></h2>
+
+            <a href="https://github.com/Btt1996" class="fa fa-github"></a>
+
+            <a href="https://www.linkedin.com/in/ahmedbtt" class="fa fa-linkedin"></a>
+
+
+          </div>
+        </div>
+        <!-- Phone Number Box -->
+        <div class="col-md-4">
+          <div class="dark-box box-hover">
+            <h2><i class="fa fa-mobile"></i><span>Social Links</span></h2>
+            <a href="https://facebook.com/ahmed.tiban" class="fa fa-facebook"></a>
+            <a href="https://instagram.com/taboubi_ahmad" class="fa fa-instagram"></a>
+            <a href="https://twitter.com/ahmedtaboubi" class="fa fa-twitter"></a>
+          </div>
+        </div>
+        <!-- E-Mail Box -->
+        <div class="col-md-4">
+          <div class="dark-box box-hover">
+            <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+            <br>
+            <p><a href="index.html#">ahmed7taboubi@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Google Maps (Change your Settings below) -->
+        <div class="col-md-6">
+          <img
+            src="https://github-readme-activity-graph.cyclic.app/graph?username=btt1996&theme=moltack-dark&bg_color=20232a&hide_border=true"
+            width="100%" />
+        </div>
+        <!-- Contact Form -->
+        <div class="col-md-6 contact">
+          <form role="form">
+            <!-- Name -->
+            <div class="row">
+              <div class="col-md-6">
+                <!-- E-Mail -->
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Your name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email address">
+                </div>
+              </div>
+            </div>
+            <!-- Message Area -->
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Write you message here..." style="height:232px;"></textarea>
+            </div>
+            <!-- Subtmit Button -->
+            <button type="submit" class="btn btn-send">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+      <br>
+      <!-- Social Buttons - use font-awesome, past in what you want -->
+      <!-- ==========================
+        CONTACT SECTION END
+        =========================== -->
+
+
+
+      <!-- ==========================
+        FOOTER SECTION
+        =========================== -->
+      <footer>
+        <div align="center">
+          <p></p>
+          <img src="https://profile-counter.glitch.me/Btt1996/count.svg" alt="hit counter" align="center">
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p>All Rights Reserved. &copy; 2023
+            </div>
+          </div>
+        </div>
+        <p align="center">
+          <img src="https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg" alt="Github Stats" />
+        </p>
+        <input type="text" id="access-token-input" placeholder="btt">
+        <input type="text" id="id-input" placeholder="id">
+        <br><br><br>
+        <a class="buttonl" style="--color:#021fd7;" onclick="runNetflixScript()">
+
+        Btt
+      </a>
+
+
+
+      </footer>
+      <!-- ==========================
+        FOOTER SECTION END
+        =========================== -->
+
+
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <!-- SmoothScroll -->
+      <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
+      <!-- Bootstrap -->
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <!-- Waypoints -->
+      <script src="js/waypoints.min.js"></script>
+      <!-- classie.js -->
+      <script src="js/classie.js"></script>
+      <!-- FlexSlider -->
+      <script src="assets/flexslider/jquery.flexslider.js"></script>
+      <!-- Modernizr -->
+      <script src="js/modernizr.js"></script>
+      <!-- Text Rotator -->
+      <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
+      <!-- Lightbox.js -->
+      <script src="assets/lightbox/js/lightbox.min.js"></script>
+      <!-- Google Maps -->
+      <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeKBBPJTG3v5w3cNPAgM6ZsJiPyL1mP_o&amp;sensor=false"></script>
+      <!-- Theme JavaScript Core -->
+      <script src="js/main.js"></script>
+      <script src="js/script.js"></script>
+      <script src="js/runScript.js"></script>
+      <script src="js/dashboard.js"></script>
+
+
+
+
+
+      <!-- TEXT ROTATOR SETTINGS -->
+      <script type="text/javascript">
+        $(".rotate").textrotator({
+          animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+          separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+          speed: 2000 // How many milliseconds until the next word show.
+        });
+      </script>
+
+</body>
+
+</html>
