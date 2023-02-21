@@ -1341,6 +1341,9 @@ ul.slides li {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
 
+.container {
+
+}
 
 .container1 {
   width: 100%;
@@ -1349,23 +1352,31 @@ ul.slides li {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 120px;
+  gap: 60px;
   background: #27282c;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 .buttonl {
   position: relative;
-  padding: 16px 30px;
+  padding: 8px 15px;
   font-size: 1.5rem;
   color: var(--color);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  text-shadow: 0 0 15px var(--color);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  text-shadow: 0 0 7px var(--color);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: 0.5s;
   z-index: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;	
 }
 
 .buttonl:hover {
