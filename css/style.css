@@ -1338,19 +1338,19 @@ ul.slides li {
 	border-radius: 50%
   }
 
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
-
-
-
 .container1 {
-  width: 10%;
-  min-height: 10vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 2px;
  
   margin: 0;
   padding: 0;
@@ -1360,8 +1360,8 @@ ul.slides li {
 
 .buttonl {
   position: relative;
-  padding: 8px 15px;
-  font-size: 1.5rem;
+  padding: 1px 1px;
+  font-size: 0.5rem;
   color: var(--color);
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 2px;
@@ -1388,8 +1388,8 @@ ul.slides li {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
   background: var(--color);
   z-index: -1;
   transform: scale(0);
@@ -1399,7 +1399,7 @@ ul.slides li {
 .buttonl:hover::before {
   transform: scale(1);
   transition-delay: 0.5s;
-  box-shadow: 0 0 10px var(--color),
+  box-shadow: 0 0 5px var(--color),
     0 0 30px var(--color),
     0 0 60px var(--color);
 }
@@ -1408,12 +1408,12 @@ ul.slides li {
   position: absolute;
   background: var(--color);
   pointer-events: none;
-  border-radius: 2px;
-  box-shadow: 0 0 10px var(--color),
-    0 0 20px var(--color),
-    0 0 30px var(--color),
-    0 0 50px var(--color),
-    0 0 100px var(--color);
+  border-radius: 1px;
+  box-shadow: 0 0 5px var(--color),
+    0 0 6px var(--color),
+    0 0 1px var(--color),
+    0 0 8px var(--color),
+    0 0 3px var(--color);
   transition: 0.5s ease-in-out;
   transition-delay: 0.25s;
 }
@@ -1425,8 +1425,8 @@ ul.slides li {
 
 .buttonl span:nth-child(1),
 .buttonl span:nth-child(3) {
-  width: 40px;
-  height: 4px;
+  width: 20px;
+  height: 2px;
 }
 
 .buttonl:hover span:nth-child(1),
@@ -1437,7 +1437,7 @@ ul.slides li {
 .buttonl span:nth-child(2),
 .buttonl span:nth-child(4) {
   width: 4px;
-  height: 40px;
+  height: 20px;
 }
 
 .buttonl:hover span:nth-child(1),
@@ -1447,7 +1447,7 @@ ul.slides li {
 
 .buttonl span:nth-child(1) {
   top: calc(50% - 2px);
-  left: -50px;
+  left: -30px;
   transform-origin: left;
 }
 
@@ -1457,7 +1457,7 @@ ul.slides li {
 
 .buttonl span:nth-child(3) {
   top: calc(50% - 2px);
-  right: -50px;
+  right: -30px;
   transform-origin: right;
 }
 
@@ -1467,7 +1467,7 @@ ul.slides li {
 
 .buttonl span:nth-child(2) {
   left: calc(50% - 2px);
-  top: -50px;
+  top: -30px;
   transform-origin: top;
 }
 
@@ -1477,7 +1477,7 @@ ul.slides li {
 
 .buttonl span:nth-child(4) {
   left: calc(50% - 2px);
-  bottom: -50px;
+  bottom: -30px;
   transform-origin: bottom;
 }
 
@@ -1485,4 +1485,3 @@ ul.slides li {
   bottom: 50%;
 }
         
-
