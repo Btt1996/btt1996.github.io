@@ -1345,7 +1345,7 @@ ul.slides li {
 
 .container1 {
   width: 100%;
-  min-height: 100vh;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1361,14 +1361,14 @@ ul.slides li {
 .buttonl {
   position: relative;
   padding: 1px 1px;
-  font-size: 0.5rem;
+  font-size: 0.863rem;
   color: var(--color);
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
   text-shadow: 0 0 7px var(--color);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
   transition: 0.5s;
   z-index: 1;
   margin: 0;
