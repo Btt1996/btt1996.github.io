@@ -1338,138 +1338,147 @@ ul.slides li {
 	border-radius: 50%
   }
 
-button {
-  
-  font-size: 6vw;
-  @media screen and ( min-width: 400px ) {
-    font-size: 3vw;
-  }
-  
-  color: var(--text);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  background-color: var(--clr);
-  background-image:   
-    linear-gradient(180deg, 
-      var(--clr2) var(--gradgap), 
-      transparent calc(100% - var(--gradgap))
-    );
-  background-repeat: no-repeat;
-  background-position: center var(--gradoffset);
-  background-size: 100% 200%;
-  padding: 1.1em 1.5em;
-  border-radius: 2em;
-  border: none;
-  
-  box-shadow: 
-    0 -0.5em 0.5em transparent,
-    0 0.5em 0.5em transparent,
-    0 0.25em 0.3em -0.2em hsla(var(--hue), var(--sat), 50%, 0.46), 
-    0 0.25em 0.75em hsla(var(--hue), calc(var(--sat) - 10%), 40%, 0.3);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
-  position: relative;
-  transition: all 0.5s ease;
-  outline: none;
-
-  &::before, &::after {
-    content: "";
-    inset: 0;
-    position: absolute;
-    border-radius: 5em;
-  }
-  
-  // darkening
-  &::before {
-    background-image: 
-      radial-gradient(ellipse, 
-        hsla(var(--hue), 100%, 90%, .8) 20%,
-        transparent 50%,
-        transparent 200%
-      ),
-      linear-gradient(90deg, 
-        hsl(0deg, 0%, 25%) -10%, 
-        transparent 30%, 
-        transparent 70%, 
-        hsl(0deg, 0%, 25%) 110%
-      );
-    box-shadow: 
-      inset 0 .25em .75em hsla(0deg, 0%, 0%, 0.8),
-      inset 0 -.05em .2em rgba(255, 255, 255, 0.4),
-      inset 0 -1px 3px hsla(var(--hue), 80%, 50%, .75);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-    background-size: 200% 80%, cover;
-    background-position: center 220%;
-    mix-blend-mode: overlay;
-    filter: blur(calc(var(--blur) * 0.5));
-  }
-  
-  // reflection
-  &::after {
-    background: linear-gradient(
-      180deg, 
-      hsla(var(--hue2),100%,90%,.9), 
-      hsla(var(--hue2),calc(var(--sat2)*0.7),50%,.75) 40%, 
-      transparent 80%
-    );
-    top: 0.075em;
-    left: 0.75em;
-    right: 0.75em;
-    bottom: 1.4em;
-    filter: blur(var(--blur));
-    mix-blend-mode: screen;
-  }
-  
-  &:hover,
-  &:active,
-  &:focus {
-    outline: none;
-    box-shadow: 
-      0 -0.2em 1em hsla(var(--hue2), 70%, 80%, 0.3),
-      0 0.5em 1.5em hsla(var(--hue), 70%, 80%, 0.5),
-      0 0.25em 0.3em -0.2em hsl(var(--hue) 90% 70%), 
-      0 0.25em 0.5em hsla(var(--hue),20%,30%, 0.2),
-      inset 0 -2px 2px rgba(255,255,255,0.2);
-    background-position: center calc( var(--gradoffset) - 0.75em );
-  }
-  
-}
-
-
-
-.static button {
-  position: relative;
-}
-.static button .spinner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateY(.75em) translateX(-50%);
-  opacity: 0;
+* {
   margin: 0;
-  font-size: 2em;
-  mix-blend-mode: overlay;
-}
-.static button span,
-.static button svg,
-.static button .spinner {
-  transition: all 0.33s ease;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.static button:active,
-.static button:focus {
-  span,
-  svg:not(.spinner) {
-    transform: translateY(-1em);
-    opacity: 0;
-    filter: blur(5px);
-  }
-  .spinner {
-    transform: translateY(-0.5em) translateX(-50%);
-    opacity: 1;
-  }
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 120px;
+  background: #27282c;
 }
 
+.button {
+  position: relative;
+  padding: 16px 30px;
+  font-size: 1.5rem;
+  color: var(--color);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  text-shadow: 0 0 15px var(--color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+  z-index: 1;
+}
 
+.button:hover {
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0px var(--color);
+}
 
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color);
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.button:hover::before {
+  transform: scale(1);
+  transition-delay: 0.5s;
+  box-shadow: 0 0 10px var(--color),
+    0 0 30px var(--color),
+    0 0 60px var(--color);
+}
+
+.button span {
+  position: absolute;
+  background: var(--color);
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--color),
+    0 0 20px var(--color),
+    0 0 30px var(--color),
+    0 0 50px var(--color),
+    0 0 100px var(--color);
+  transition: 0.5s ease-in-out;
+  transition-delay: 0.25s;
+}
+
+.button:hover span {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.button span:nth-child(1),
+.button span:nth-child(3) {
+  width: 40px;
+  height: 4px;
+}
+
+.button:hover span:nth-child(1),
+.button:hover span:nth-child(3) {
+  transform: translateX(0);
+}
+
+.button span:nth-child(2),
+.button span:nth-child(4) {
+  width: 4px;
+  height: 40px;
+}
+
+.button:hover span:nth-child(1),
+.button:hover span:nth-child(3) {
+  transform: translateY(0);
+}
+
+.button span:nth-child(1) {
+  top: calc(50% - 2px);
+  left: -50px;
+  transform-origin: left;
+}
+
+.button:hover span:nth-child(1) {
+  left: 50%;
+}
+
+.button span:nth-child(3) {
+  top: calc(50% - 2px);
+  right: -50px;
+  transform-origin: right;
+}
+
+.button:hover span:nth-child(3) {
+  right: 50%;
+}
+
+.button span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: -50px;
+  transform-origin: top;
+}
+
+.button:hover span:nth-child(2) {
+  top: 50%;
+}
+
+.button span:nth-child(4) {
+  left: calc(50% - 2px);
+  bottom: -50px;
+  transform-origin: bottom;
+}
+
+.button:hover span:nth-child(4 ) {
+  bottom: 50%;
+}
+        
 
