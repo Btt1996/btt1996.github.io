@@ -1484,4 +1484,11 @@ ul.slides li {
 .buttonl:hover span:nth-child(4 ) {
   bottom: 50%;
 }
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* adjust as needed */
+}
         
