@@ -1,6 +1,13 @@
-$(window).load(function(){
-	$('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
+function runScript() {
+	// Hide the preloader
+	$('#preloader').fadeOut('slow', function() {
+	  $(this).remove();
+	});
+  
+	// Play the audio file
+	var audio = new Audio('1.mp3');
+	audio.play();
+  }
 
 
 /******************************************************************************************************************************
