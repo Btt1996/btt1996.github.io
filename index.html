@@ -28,12 +28,24 @@
   <link href="css/animate.css" rel="stylesheet">
 
   <link href="img/btt.ico" rel="shortcut icon" type="image/x-icon" />
+  <div>
+  <audio id="myAudio" loop>
+    <source src="1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  </script>
 </head>
+  </div>
 
 <body id="top">
 
   <!-- ****************************** Preloader ************************** -->
   <div id="preloader">
+    
     <h1 id="loading-message" style="
         position: absolute;
         top: 60%;
