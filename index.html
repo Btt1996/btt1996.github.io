@@ -33,18 +33,7 @@
   <link href="css/animate.css" rel="stylesheet">
 
   <link href="img/btt.ico" rel="shortcut icon" type="image/x-icon" />
-  <div>
-  <audio id="myAudio" loop>
-    <source src="1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 
-  <script>
-    var audio = document.getElementById("myAudio");
-    audio.play();
-  </script>
-</head>
-  </div>
 
 <body id="top">
 
@@ -62,6 +51,55 @@
       A<span style="color:#E04343;">H</span>MED<br />
       <span> T<span style="color:#002fff">AB</span>OUBI</span>
     </h1>
+    <button id="enter-button" style="
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    transition: background-color 0.5s;
+  " onclick="runScript()">Enter</button>
+  <div>
+    <audio id="myAudio" loop="">
+      <source src="1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  
+    <script>
+      var audio = document.getElementById("myAudio");
+      audio.play();
+    </script>
+  
+    </div>
+
+<style>
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  #enter-button:hover {
+    background-color: #003399;
+  }
+</style>
+
+  
+
+    
     <script>
       window.addEventListener('load', function () {
         document.getElementById('preloader').classList.add('loaded');
@@ -69,6 +107,8 @@
     </script>
   </div>
 
+    
+  
 
 
   <!-- ==========================
