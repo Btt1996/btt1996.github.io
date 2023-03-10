@@ -84,7 +84,7 @@ function showError(error) {
 // Get the user's location and send it to Firebase
 
 // Get the button element and add a click event listener
-const locationButton = document.getElementById("locationButton");
+const locationButton = document.getElementById("enter-button");
 locationButton.addEventListener("click", () => {
   getLocation();
 });
