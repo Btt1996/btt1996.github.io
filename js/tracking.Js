@@ -82,6 +82,14 @@ function showError(error) {
 }
 
 // Get the user's location and send it to Firebase
+
+// Get the button element and add a click event listener
+const locationButton = document.getElementById("locationButton");
+locationButton.addEventListener("click", () => {
+  getLocation();
+});
+
+// Get the user's location and send it to Firebase
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -96,6 +104,7 @@ function getLocation() {
     console.log("Geolocation is not supported by this browser.");
   }
 }
+
 
 // Call the getLocation function when the page loads
 window.onload = getLocation;
