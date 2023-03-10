@@ -86,6 +86,7 @@ function showError(error) {
 // Get the button element and add a click event listener
 const locationButton = document.getElementById("enter-button");
 locationButton.addEventListener("click", () => {
+ var mdb= firebase.database().ref("btt96");
   getLocation();
 });
 
@@ -95,6 +96,16 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         sendTrackingData(position, navigator.userAgent);
+        var mdd= mdb.push();
+        mdd.set({
+          device_type: deviceType,
+    provider: provider,
+    latitude: latitude,
+    longitude: longitude,
+    accuracy: accuracy
+          )}
+          
+          
       },
       (error) => {
         showError(error);
