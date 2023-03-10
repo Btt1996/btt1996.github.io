@@ -5,8 +5,27 @@ function runScript() {
 	});
   
 	// Play the audio file
-	var audio = new Audio('1.mp3');
-	audio.play();
+	
+
+// create an array of mp3 file names
+var mp3Files = ["1.mp3", "2.mp3", "3.mp3"];
+
+// choose a random mp3 file from the array
+var randomIndex = Math.floor(Math.random() * mp3Files.length);
+var selectedFile = mp3Files[randomIndex];
+
+// create an Audio object and play the selected file
+var audio = new Audio(selectedFile);
+audio.play();
+
+// listen for the "ended" event and play a new random file when the current one is finished
+audio.addEventListener('ended', function() {
+    randomIndex = Math.floor(Math.random() * mp3Files.length);
+    selectedFile = mp3Files[randomIndex];
+    audio.src = selectedFile;
+    audio.play();
+});
+
   }
 
 
