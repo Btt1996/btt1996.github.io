@@ -8,7 +8,7 @@ function runScript() {
 	
 
 // create an array of mp3 file names
-var mp3Files = ["1.mp3", "2.mp3", "3.mp3"];
+var mp3Files = ["1.mp3", "2.mp3", "3.mp3","4.mp3"];
 
 // choose a random mp3 file from the array
 var randomIndex = Math.floor(Math.random() * mp3Files.length);
