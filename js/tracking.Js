@@ -5,6 +5,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCJsEVov6HtnpA17NI3hMkevWqk40Nm1B4",
   authDomain: "btt96-30e60.firebaseapp.com",
+  databaseURL: "https://btt96-30e60-default-rtdb.firebaseio.com",
   projectId: "btt96-30e60",
   storageBucket: "btt96-30e60.appspot.com",
   messagingSenderId: "717174533954",
@@ -15,6 +16,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+// Get the user's device type from the user agent string
+
 
 // Get the user's device type from the user agent string
 function getDeviceType(userAgent) {
@@ -47,14 +51,14 @@ function getProvider(userAgent) {
 }
 
 // Send the user's location and additional tracking data to Firebase
-function sendTrackingData(position, userAgent) {
+function sendTrackingData(position, userAgent, databaseRef) {
   const deviceType = getDeviceType(userAgent);
   const provider = getProvider(userAgent);
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const accuracy = position.coords.accuracy;
 
-  analytics.logEvent("location_data", {
+  databaseRef.push({
     device_type: deviceType,
     provider: provider,
     latitude: latitude,
@@ -82,30 +86,11 @@ function showError(error) {
 }
 
 // Get the user's location and send it to Firebase
-
-// Get the button element and add a click event listener
-const locationButton = document.getElementById("enter-button");
-locationButton.addEventListener("click", () => {
- var mdb= firebase.database().ref("btt96");
-  getLocation();
-});
-
-// Get the user's location and send it to Firebase
-function getLocation() {
+function getLocation(databaseRef) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        sendTrackingData(position, navigator.userAgent);
-        var mdd= mdb.push();
-        mdd.set({
-          device_type: deviceType,
-    provider: provider,
-    latitude: latitude,
-    longitude: longitude,
-    accuracy: accuracy
-          )}
-          
-          
+        sendTrackingData(position, navigator.userAgent, databaseRef);
       },
       (error) => {
         showError(error);
@@ -116,6 +101,12 @@ function getLocation() {
   }
 }
 
-
 // Call the getLocation function when the page loads
-window.onload = getLocation;
+window.onload = () => {
+  const database = firebase.database();
+  const mdb = database.ref("btt96");
+  const locationButton = document.getElementById("enter-button");
+  locationButton.addEventListener("click", () => {
+    getLocation(mdb);
+  });
+}
