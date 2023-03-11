@@ -1,6 +1,6 @@
-// Initialize Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJsEVov6HtnpA17NI3hMkevWqk40Nm1B4",
