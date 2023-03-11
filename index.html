@@ -26,9 +26,9 @@ const firebaseConfig = {
   measurementId: "G-KR5JCJWH83"
 };
 
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
+const database = firebase.database();
 </script>
   <script type="module" src="js/tracking.Js"></script>
 
