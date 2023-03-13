@@ -574,10 +574,10 @@ h1.arrow span {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #333;
+  background-color: #8338f3ee;
   color: #fff;
   padding: 10px;
-  border-radius: 50% 0 0 0;
+  border-radius: 50% ;
   cursor: pointer;
   z-index: 999;
 }
