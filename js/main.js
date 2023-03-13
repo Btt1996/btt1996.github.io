@@ -7,7 +7,6 @@ function runScript() {
 	// Play the audio file
 	
 
-// create an array of mp3 file names
 var mp3Files = ["1.mp3", "2.mp3", "3.mp3","4.mp3"];
 
 // choose a random mp3 file from the array
@@ -25,6 +24,27 @@ audio.addEventListener('ended', function() {
     audio.src = selectedFile;
     audio.play();
 });
+
+// add event listener for pause/resume button
+var audioControlButton = document.createElement("button");
+audioControlButton.id = "audio-control-button";
+audioControlButton.innerHTML = '<i class="fas fa-pause"></i> Pause';
+document.body.appendChild(audioControlButton);
+
+audioControlButton.addEventListener("click", function() {
+  if (audio.paused) {
+    audio.play();
+    audioControlButton.classList.remove("paused");
+    audioControlButton.classList.add("playing");
+    audioControlButton.innerHTML = '<i class="fas fa-pause"></i> Pause';
+  } else {
+    audio.pause();
+    audioControlButton.classList.remove("playing");
+    audioControlButton.classList.add("paused");
+    audioControlButton.innerHTML = '<i class="fas fa-play"></i> Resume';
+  }
+});
+
 
   }
 
