@@ -32,4 +32,4 @@ client.connect(err => {
       insertDocument(trackingData);
     });
   });
-});
+
