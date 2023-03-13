@@ -1,7 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Replace the URI, database name, and collection name with your own values
-const uri = "mongodb+srv://ahmed96tun:<password>@btt.n45wlry.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://ahmed96tun:FvKOqtLFn239spo1@btt.n45wlry.mongodb.net/?retryWrites=true&w=majority";
 const databaseName = "test";
 const collectionName = "tracking_data";
 
