@@ -1,35 +1,27 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+// Initialize the MongoDB Realm app
+const app = new Realm.App({ id: "bt-yjurt" });
 
-// Replace the URI, database name, and collection name with your own values
-const uri = "mongodb+srv://ahmed96tun:FvKOqtLFn239spo1@btt.n45wlry.mongodb.net/?retryWrites=true&w=majority";
-const databaseName = "test";
-const collectionName = "tracking_data";
+// Authenticate the user
+const credentials = Realm.Credentials.anonymous();
+app.logIn(credentials).then((user) => {
+  console.log("Logged in as user " + user.id);
 
-// Create a new MongoClient and connect to the database
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true , serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-  console.log("Connected to database");
+  // Get a reference to the function
+  const insertDocument = app.functions["Fun"];
 
-  // Define a function to insert a document into the collection
-  function insertDocument(document) {
-    collection.insertOne(document, (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log("Document inserted");
-    });
-  }
-
-  // Call the getLocation function and insert the tracking data into the database
+  // Call the function and insert the tracking data into the database
   const locationButton = document.getElementById("enter-button");
   locationButton.addEventListener("click", () => {
     getLocation((trackingData) => {
-      insertDocument(trackingData);
+      insertDocument.call({ document: trackingData }).then((result) => {
+        console.log("Document inserted");
+      }).catch((error) => {
+        console.log(error);
+      });
     });
   });
+}).catch((error) => {
+  console.log(error);
+});
+
 
