@@ -360,7 +360,7 @@ table {
 	border:none;
 	text-indent:2.5em;
 	color:transparent;
-	background:transparent;
+	background:#fbfbfb;
 }
 .menu-button::before {
 	position:absolute;
