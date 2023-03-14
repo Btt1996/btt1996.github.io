@@ -1357,8 +1357,8 @@ ul.slides li {
   }
   
   .certification-badges img {
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	margin: 10px;
 	border: 3px solid rgb(217, 0, 0);
 	border-radius: 50%
@@ -1387,14 +1387,13 @@ ul.slides li {
 .buttonl {
   position: relative;
   padding: 1px 1px;
-  font-size: 0.863rem;
-  color: var(--color);
+  font-size: 0.683rem;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   text-shadow: 0 0 7px var(--color);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   transition: 0.5s;
   z-index: 1;
   margin: 0;
