@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tracking Data</title>
+</head>
+<body>
+  <h1>Tracking Data</h1>
+  <div id="tracking-data"></div>
+  
+  <script>
+    // Retrieve the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the tracking data from the query parameters
+    const deviceType = urlParams.get("device_type") || "Unknown";
+    const provider = urlParams.get("provider") || "Unknown";
+    const latitude = urlParams.get("latitude") || "Unknown";
+    const longitude = urlParams.get("longitude") || "Unknown";
+    const accuracy = urlParams.get("accuracy") || "Unknown";
+
+    // Display the tracking data in the HTML container
+    const trackingDataContainer = document.getElementById("tracking-data");
+    trackingDataContainer.innerHTML = `
+      <p>Device Type: ${deviceType}</p>
+      <p>Internet Provider: ${provider}</p>
+      <p>Latitude: ${latitude}</p>
+      <p>Longitude: ${longitude}</p>
+      <p>Accuracy: ${accuracy} meters</p>
+    `;
+  </script>
+</body>
+</html>
