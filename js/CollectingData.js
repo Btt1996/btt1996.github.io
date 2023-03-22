@@ -46,6 +46,11 @@ function getLocation(callback) {
           accuracy: accuracy
         };
         callback(trackingData);
+                const trackingDataElement = document.createElement('p');
+        trackingDataElement.innerHTML = `Device Type: ${deviceType}<br>Provider: ${provider}<br>Latitude: ${latitude}<br>Longitude: ${longitude}<br>Accuracy: ${accuracy}`;
+        // Append the tracking data element to the container
+        const trackingDataContainer = document.getElementById('tracking-data-container');
+        trackingDataContainer.appendChild(trackingDataElement);
       },
       (error) => {
         showError(error);
