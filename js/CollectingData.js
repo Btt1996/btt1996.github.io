@@ -46,11 +46,7 @@ function getLocation(callback) {
           accuracy: accuracy
         };
         callback(trackingData);
-                const trackingDataElement = document.createElement('p');
-        trackingDataElement.innerHTML = `Device Type: ${deviceType}<br>Provider: ${provider}<br>Latitude: ${latitude}<br>Longitude: ${longitude}<br>Accuracy: ${accuracy}`;
-        // Append the tracking data element to the container
-        const trackingDataContainer = document.getElementById('tracking-data-container');
-        trackingDataContainer.appendChild(trackingDataElement);
+
       },
       (error) => {
         showError(error);
@@ -60,3 +56,13 @@ function getLocation(callback) {
     console.log("Geolocation is not supported by this browser.");
   }
 }
+const trackingDataContainer = document.getElementById("tracking-data");
+getLocation((trackingData) => {
+  trackingDataContainer.innerHTML = `
+    <p>Device Type: ${trackingData.device_type}</p>
+    <p>Internet Provider: ${trackingData.provider}</p>
+    <p>Latitude: ${trackingData.latitude}</p>
+    <p>Longitude: ${trackingData.longitude}</p>
+    <p>Accuracy: ${trackingData.accuracy} meters</p>
+  `;
+});
