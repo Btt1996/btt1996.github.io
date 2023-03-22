@@ -56,13 +56,12 @@ function getLocation(callback) {
     console.log("Geolocation is not supported by this browser.");
   }
 }
-const trackingDataContainer = document.getElementById("tracking-data");
-getLocation((trackingData) => {
-  trackingDataContainer.innerHTML = `
-    <p>Device Type: ${trackingData.device_type}</p>
-    <p>Internet Provider: ${trackingData.provider}</p>
-    <p>Latitude: ${trackingData.latitude}</p>
-    <p>Longitude: ${trackingData.longitude}</p>
-    <p>Accuracy: ${trackingData.accuracy} meters</p>
-  `;
-});
+function getTrackingData() {
+  getLocation((trackingData) => {
+    // Construct the query parameters from the tracking data
+    const queryParams = new URLSearchParams(trackingData).toString();
+    
+    // Redirect the user to index2.html with the query parameters
+    window.location.href = `index2.html?${queryParams}`;
+  });
+}
