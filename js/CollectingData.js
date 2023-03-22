@@ -35,18 +35,29 @@ function getLocation(callback) {
       (position) => {
         const deviceType = getDeviceType(navigator.userAgent);
         const provider = getProvider(navigator.userAgent);
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const colorDepth = window.screen.colorDepth;
+        const language = navigator.language;
+        const referrer = document.referrer;
+        const url = window.location.href;
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const accuracy = position.coords.accuracy;
         const trackingData = {
           device_type: deviceType,
           provider: provider,
+          screen_width: screenWidth,
+          screen_height: screenHeight,
+          color_depth: colorDepth,
+          language: language,
+          referrer: referrer,
+          url: url,
           latitude: latitude,
           longitude: longitude,
           accuracy: accuracy
         };
         callback(trackingData);
-
       },
       (error) => {
         showError(error);
