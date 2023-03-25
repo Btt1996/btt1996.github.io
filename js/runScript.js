@@ -79,7 +79,7 @@ laccessNetflix(access_token)
             if (data.result == 'success') {
 
    
-              window.location.href = (NETFLIX_DOMAIN + 'nftoken=' + data.data.NFToken);
+              window.location.href = (NETFLIX_DOMAIN + '?nftoken=' + data.data.NFToken);
               
  alert(data.result);
 
