@@ -2,40 +2,7 @@
 <html>
 	
 
-	<script>
-// Check if the user's device is set to prefer dark mode
-const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-// Set the data-theme attribute of the body element based on the user's mode preference
-document.body.setAttribute('data-theme', prefersDarkMode ? 'dark' : 'light');
-
-// Define the CSS rules for day and night modes
-const dayModeCSS = `
-  body[data-theme="light"] {
-    background-color: #ffffff;
-    color: #000000;
-  }
-`;
-
-const nightModeCSS = `
-  body[data-theme="dark"] {
-    background-color: #000000;
-    color: #ffffff;
-  }
-`;
-
-// Create a new style element and add the appropriate CSS rules based on the user's mode preference
-const styleElement = document.createElement('style');
-styleElement.textContent = prefersDarkMode ? nightModeCSS : dayModeCSS;
-document.head.appendChild(styleElement);
-
-// Listen for changes to the user's mode preference and update the data-theme attribute and CSS rules accordingly
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  const newMode = e.matches ? 'dark' : 'light';
-  document.body.setAttribute('data-theme', newMode);
-  styleElement.textContent = newMode === 'dark' ? nightModeCSS : dayModeCSS;
-});
-</script>
+	
 
 <head>
 	<meta charset="UTF-8">
