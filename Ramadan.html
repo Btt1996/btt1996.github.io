@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>اختار حلقة مرحبا بيك صحة شريبتك</title>
+	<title>Watch Episode</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -66,82 +66,32 @@
 	<h1>Watch Episode</h1>
 
 	<form>
-		
-
-		<label for="episode">اختار تفضل:</label>
+		<label for="episode">Choose an episode:</label>
 		<select id="episode" name="episode">
 			<option value="">--Please choose an episode--</option>
-			<option value="fallujah-ep1">Fallujah Episode 1</option>
-			<option value="fallujah-ep2">Fallujah Episode 2</option>
-			<option value="jbal-ep1">Jbal Episode 1</option>
-			<option value="jbal-ep2">Jbal Episode 2</option>
+			<option value="https://anafast.online/embed-664tw2d2k15x.html">Fallujah Episode 1</option>
+			<option value="https://vidoba.cc/embed-ofpfdh19paig.html">Fallujah Episode 2</option>
+			<option value="https://www.ok.ru/videoembed/4358871845600">Jbal Episode 1</option>
+			<option value="https://www.ok.ru/videoembed/4365736020704">Jbal Episode 2</option>
 		</select>
 
-		<button type="submit">نحب نتفرج</button>
+		<button type="submit">Watch Now</button>
 	</form>
 
 	<div id="player"></div>
 
 	<script>
-		// Get the form elements
 		const form = document.querySelector('form');
-		const seriesSelect = document.getElementById('series');
-		const episodeSelect = document.getElementById('episode');
 		const playerDiv = document.getElementById('player');
 
-		// Function to create the episode title
-		function createEpisodeTitle(series, episode) {
-			let episodeTitle;
-			if (series === 'fallujah' && episode === 'fallujah-ep1') {
-				episodeTitle = 'Fallujah Episode 1';
-			} else if (series === 'fallujah' && episode === 'fallujah-ep2') {
-				episodeTitle = 'Fallujah Episode 2';		} else if (series === 'jbal' && episode === 'jbal-ep1') {
-			episodeTitle = 'Jbal Episode 1';
-		} else if (series === 'jbal' && episode === 'jbal-ep2') {
-			episodeTitle = 'Jbal Episode 2';
-		}
-		return episodeTitle;
-	}
+		form.addEventListener('submit', event => {
+			event.preventDefault();
+			const selectedEpisode = document.getElementById('episode').value;
 
-	// Function to create the episode embed URL
-	function createEpisodeURL(series, episode) {
-		let episodeURL;
-		if (series === 'fallujah' && episode === 'fallujah-ep1') {
-			episodeURL = 'https://anafast.online/embed-664tw2d2k15x.html';
-		} else if (series === 'fallujah' && episode === 'fallujah-ep2') {
-			episodeURL = 'https://vidoba.cc/embed-ofpfdh19paig.html';
-		} else if (series === 'jbal' && episode === 'jbal-ep1') {
-			episodeURL = 'https://www.ok.ru/videoembed/4358871845600';
-		} else if (series === 'jbal' && episode === 'jbal-ep2') {
-			episodeURL = 'https://www.ok.ru/videoembed/4365736020704';
-		}
-		return episodeURL;
-	}
-
-	// Function to handle the form submission
-	function handleFormSubmit(event) {
-		event.preventDefault();
-		const selectedSeries = seriesSelect.value;
-		const selectedEpisode = episodeSelect.value;
-		if (selectedSeries && selectedEpisode) {
-			// Create the episode title and URL
-			const episodeTitle = createEpisodeTitle(selectedSeries, selectedEpisode);
-			const episodeURL = createEpisodeURL(selectedSeries, selectedEpisode);
-
-			// Create the embed code
-			const embedCode = `<iframe src="${episodeURL}"></iframe>`;
-
-			// Update the playerDiv with the embed code and episode title
-			playerDiv.innerHTML = `<p>${episodeTitle}</p>${embedCode}`;
-
-			// Scroll to the playerDiv
-			playerDiv.scrollIntoView({ behavior: 'smooth' });
-		}
-	}
-
-	// Attach the handleFormSubmit function to the form submit event
-	form.addEventListener('submit', handleFormSubmit);
-</script>
-
+			if (selectedEpisode) {
+				playerDiv.innerHTML = `<p>${selectedEpisode}</p><iframe src="${selectedEpisode}"></iframe>`;
+			}
+		});
+	</script>
 </body>
 </html>
