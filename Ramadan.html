@@ -83,31 +83,8 @@
 	</style>
 </head>
 <body>
-	  <style>
-      #hijri-date {
-        color: darkgreen;
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-      }
-    </style>
-  
-    <h1 id="hijri-date"></h1>
 	
-    <script>
-      // Create a new date object
-      var today = new Date();
-      // Convert the date to the Hijri calendar in French
-      var hijriDate = new Intl.DateTimeFormat('fr', {day: 'numeric', month: 'long'}).format(today);
-      // Display the Hijri date on the page
-      document.getElementById('hijri-date').innerHTML = hijriDate;
-    </script>
-	<script src="https://cdn.jsdelivr.net/npm/praytimes@3.0.0/dist/PrayTimes.js"></script>
-  
-    
-    <ul>
-      <li>الفجر: <span id="fajr-time"></span></li>
-      <li>المغرب: <span id="maghreb-time"></span></li>
-    </ul>
+	
     <script>
       // Initialize the praytimes object with the Tunis location and calculation method
       var pt = new PrayTimes('Tunisia');
