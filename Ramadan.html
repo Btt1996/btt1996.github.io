@@ -96,9 +96,27 @@
       // Create a new date object
       var today = new Date();
       // Convert the date to the Hijri calendar in Arabic
-      var hijriDate = new Intl.DateTimeFormat('ar', {day: 'numeric', month: 'long', year: 'numeric', calendar: 'islamic'}).format(today);
+      var hijriDate = new Intl.DateTimeFormat('ar', {day: 'numeric', month: 'long', calendar: 'islamic', numberingSystem: 'arab'}).format(today);
       // Display the Hijri date on the page
       document.getElementById('hijri-date').innerHTML = hijriDate;
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/praytimes@3.0.0/dist/PrayTimes.js"></script>
+  
+    
+    <ul>
+      <li>الفجر: <span id="fajr-time"></span></li>
+      <li>المغرب: <span id="maghreb-time"></span></li>
+    </ul>
+    <script>
+      // Initialize the praytimes object with the Tunis location and calculation method
+      var pt = new PrayTimes('Tunisia');
+      // Get today's date
+      var today = new Date();
+      // Calculate prayer times for today
+      var times = pt.getTimes(today, [36.8065, 10.1815], '+1', 'auto', '24h');
+      // Display the Fajr and Maghreb prayer times on the page
+      document.getElementById('fajr-time').innerHTML = times.fajr;
+      document.getElementById('maghreb-time').innerHTML = times.maghrib;
     </script>
 	<h1 align="center">اختار تفضل</h1>
 
