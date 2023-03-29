@@ -92,11 +92,12 @@
     </style>
   
     <h1 id="hijri-date"></h1>
+	
     <script>
       // Create a new date object
       var today = new Date();
-      // Convert the date to the Hijri calendar in Arabic
-      var hijriDate = new Intl.DateTimeFormat({day: 'numeric', month: 'long', calendar: 'islamic', numberingSystem: 'arab'}).format(today);
+      // Convert the date to the Hijri calendar in French
+      var hijriDate = new Intl.DateTimeFormat('ar-FR-u-ca-islamic', {day: 'numeric', month: 'long'}).format(today);
       // Display the Hijri date on the page
       document.getElementById('hijri-date').innerHTML = hijriDate;
     </script>
