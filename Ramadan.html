@@ -83,6 +83,23 @@
 	</style>
 </head>
 <body>
+	  <style>
+      #hijri-date {
+        color: darkgreen;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+      }
+    </style>
+  
+    <h1 id="hijri-date"></h1>
+    <script>
+      // Create a new date object
+      var today = new Date();
+      // Convert the date to the Hijri calendar in Arabic
+      var hijriDate = new Intl.DateTimeFormat('ar', {day: 'numeric', month: 'long', year: 'numeric', calendar: 'islamic'}).format(today);
+      // Display the Hijri date on the page
+      document.getElementById('hijri-date').innerHTML = hijriDate;
+    </script>
 	<h1 align="center">اختار تفضل</h1>
 
 	<form align="center">
