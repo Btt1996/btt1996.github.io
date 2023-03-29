@@ -97,7 +97,7 @@
       // Create a new date object
       var today = new Date();
       // Convert the date to the Hijri calendar in French
-      var hijriDate = new Intl.DateTimeFormat('ar-FR-u-ca-islamic', {day: 'numeric', month: 'long'}).format(today);
+      var hijriDate = new Intl.DateTimeFormat('fr', {day: 'numeric', month: 'long'}).format(today);
       // Display the Hijri date on the page
       document.getElementById('hijri-date').innerHTML = hijriDate;
     </script>
