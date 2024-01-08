@@ -686,6 +686,8 @@ section {
 .btn-con {
   display: flex;
   align-self: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-btn {
