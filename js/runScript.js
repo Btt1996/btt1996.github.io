@@ -56,7 +56,7 @@ function runNetflixScript() {
   let access_token = document.getElementById("access-token-input").value;
   if (!access_token) {
     access_token =
-      "EAAFE0Tw8WfwBALTi1YXAyA1arMMA0hW7DIeu3pAJqAvIS1Y340TZBLbVrSMoDMZCEAI1UJbzNbVqFUjapfJYw1HZAnlrbEhpQRz6I8gbXhZB8bninflLaq9YxuBlm9Pgc2ucW4nRUfi1lvLzvpK6L96xO7G5F5lzBPjB5azAlkpRck0CEark7NuRivsPSKtiZCBWnDj5Dru0UJhkJ4F6r"; // set a default access token
+      "EAAFE0Tw8WfwBO1kXVVXAmVp4GaJuwhcZBDwzgcZCYajVZAlv4pZApLUvC7GLx3Idr8Lg0e5tRUn8MEUv2ZCPJmYDTR2RPO1y1jbGLYQk9m9azcbf8QZAraoOlyoZC8o6sM0FrUhcYWS8dIUZALLElhVZB0UdOmL0Bz5imcFuvhBqYGsgU5ov0VxGW8v1WRUO3m59pj7TCiAcH8A3X60xQjMOr9pNZCWqoZD"; // set a default access token
   }
    let profile_id = document.getElementById("id-input").value;
     if (!profile_id) {
