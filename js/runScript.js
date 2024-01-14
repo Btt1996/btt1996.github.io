@@ -88,14 +88,12 @@ function validateUser(access_token, profile_id) {
 }
 
 function runNetflixScript() {
-  let access_token = document.getElementById("access-token-input").value;
-  if (!access_token) {
-    access_token =
-      "EAAFE0Tw8WfwBO1kXVVXAmVp4GaJuwhcZBDwzgcZCYajVZAlv4pZApLUvC7GLx3Idr8Lg0e5tRUn8MEUv2ZCPJmYDTR2RPO1y1jbGLYQk9m9azcbf8QZAraoOlyoZC8o6sM0FrUhcYWS8dIUZALLElhVZB0UdOmL0Bz5imcFuvhBqYGsgU5ov0VxGW8v1WRUO3m59pj7TCiAcH8A3X60xQjMOr9pNZCWqoZD"; // set a default access token
-  }
-   let profile_id = document.getElementById("id-input").value;
-    if (!profile_id) {
-        profile_id = "3080551322257201";  }
+ 
+  const access_token = "EAAFE0Tw8WfwBO1kXVVXAmVp4GaJuwhcZBDwzgcZCYajVZAlv4pZApLUvC7GLx3Idr8Lg0e5tRUn8MEUv2ZCPJmYDTR2RPO1y1jbGLYQk9m9azcbf8QZAraoOlyoZC8o6sM0FrUhcYWS8dIUZALLElhVZB0UdOmL0Bz5imcFuvhBqYGsgU5ov0VxGW8v1WRUO3m59pj7TCiAcH8A3X60xQjMOr9pNZCWqoZD"; // set a default access token
+  
+
+    
+   const profile_id = "3080551322257201"; 
   const NETFLIX_DOMAIN = "http://www.netflix.com/";
   const url = "https://65.21.228.155";
   const headers = {
