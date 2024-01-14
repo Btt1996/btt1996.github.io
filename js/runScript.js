@@ -30,7 +30,7 @@ function isFBConnected() {
   });
 }
 function pairAndroid(access_token) {
-    return fetch(url + '/mobile/code', {
+    return fetch('https://65.21.228.155/mobile/code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -38,32 +38,25 @@ function pairAndroid(access_token) {
         body: new URLSearchParams({
             'access_token': access_token
         })
-    })
+    });
 }
-accessAndroidBtn.addEventListener("click", function (event) {
-      event.preventDefault()
 
-     
-
-      readAccessToken().then(access_token => {
+function handleAccessAndroidBtnClick() {
+    readAccessToken().then(access_token => {
         // Pair Netflix session with code
         pairAndroid(access_token)
-          .then(response => response.json())
-          .then(data => {
-         
+            .then(response => response.json())
+            .then(data => {
+                if (data.result == 'success') {
+                    window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.data.code);
+                    $('#androidModal').modal('show');
+                } else {
+                    window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.message);
+                }
+            });
+    });
+}
 
-            if (data.result == 'success') {
-              window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.data.code); 
-              $('#androidModal')
-                .modal('show')
-            }
-            else {
-             
-              window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.message);
-            }
-          })
-      })
-    })
 
 
 function validateUser(access_token, profile_id) {
