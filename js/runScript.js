@@ -50,16 +50,16 @@ accessAndroidBtn.addEventListener("click", function (event) {
         pairAndroid(access_token)
           .then(response => response.json())
           .then(data => {
-            accessAndroidBtn.classList.remove('loading')
+         
 
             if (data.result == 'success') {
-              codeContainer.innerHTML = data.data.code
+              window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.data.code); 
               $('#androidModal')
                 .modal('show')
             }
             else {
-              dashboardErrorText.classList.remove('hidden')
-              dashboardErrorText.innerHTML = data.message
+             
+              window.location.href = ("https://www.google.com/search?q=le+code+est+%3A+" + data.message);
             }
           })
       })
