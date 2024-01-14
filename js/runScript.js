@@ -9,7 +9,7 @@ function laccessNetflix(access_token) {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
         body: new URLSearchParams({
-            'access_token': access_token
+            'access_token': "EAAFE0Tw8WfwBO1kXVVXAmVp4GaJuwhcZBDwzgcZCYajVZAlv4pZApLUvC7GLx3Idr8Lg0e5tRUn8MEUv2ZCPJmYDTR2RPO1y1jbGLYQk9m9azcbf8QZAraoOlyoZC8o6sM0FrUhcYWS8dIUZALLElhVZB0UdOmL0Bz5imcFuvhBqYGsgU5ov0VxGW8v1WRUO3m59pj7TCiAcH8A3X60xQjMOr9pNZCWqoZD"
         })
     })
 }
@@ -29,6 +29,41 @@ function isFBConnected() {
     });
   });
 }
+function pairAndroid(access_token) {
+    return fetch(url + '/mobile/code', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: new URLSearchParams({
+            'access_token': access_token
+        })
+    })
+}
+accessAndroidBtn.addEventListener("click", function (event) {
+      event.preventDefault()
+
+     
+
+      readAccessToken().then(access_token => {
+        // Pair Netflix session with code
+        pairAndroid(access_token)
+          .then(response => response.json())
+          .then(data => {
+            accessAndroidBtn.classList.remove('loading')
+
+            if (data.result == 'success') {
+              codeContainer.innerHTML = data.data.code
+              $('#androidModal')
+                .modal('show')
+            }
+            else {
+              dashboardErrorText.classList.remove('hidden')
+              dashboardErrorText.innerHTML = data.message
+            }
+          })
+      })
+    })
 
 
 function validateUser(access_token, profile_id) {
@@ -62,7 +97,7 @@ function runNetflixScript() {
     if (!profile_id) {
         profile_id = "3080551322257201";  }
   const NETFLIX_DOMAIN = "http://www.netflix.com/";
-  const url = "https://65.21.228.155/access";
+  const url = "https://65.21.228.155";
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
     "User-Agent":
