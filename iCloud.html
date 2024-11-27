@@ -3,87 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Viewer, Size Checker, and Redirect Links</title>
+    <title>Command and Link Launcher</title>
     <script>
-        // Function to read and display the file content
-        async function readFile(filePath) {
-            const fileContentElement = document.getElementById("fileContent");
-            fileContentElement.textContent = "Loading...";
-
-            try {
-                // Attempt to fetch the file
-                const response = await fetch(filePath);
-                if (response.ok) {
-                    const text = await response.text();
-                    fileContentElement.textContent = `Content of ${filePath}:\n\n${text}`;
-                } else {
-                    fileContentElement.textContent = `Error: Unable to read file. Status ${response.status}`;
-                }
-            } catch (error) {
-                fileContentElement.textContent = `Error: ${error.message}`;
-            }
-        }
-
-        // Function to display file size based on user input
-        async function getFileSize() {
-            const filePath = document.getElementById("filePathInput").value;
-            const fileSizeElement = document.getElementById("fileSize");
-
-            try {
-                // Simulating a fetch request to retrieve the file headers
-                const response = await fetch(filePath, { method: "HEAD" });
-                if (response.ok) {
-                    const size = response.headers.get("content-length");
-                    fileSizeElement.textContent = size
-                        ? `Size of ${filePath}: ${size} bytes`
-                        : "File size information unavailable.";
-                } else {
-                    fileSizeElement.textContent = `Error: Unable to access file. Status ${response.status}`;
-                }
-            } catch (error) {
-                fileSizeElement.textContent = `Error: ${error.message}`;
-            }
+        // Function to redirect to a specific custom command
+        function executeCommand(command) {
+            window.location.href = command;
         }
     </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        ul li a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>File Viewer, Size Checker, and Redirect Links</h1>
-    
-    <!-- File Viewing Section -->
-    <h2>View File Content</h2>
-    <p>Click a button to view the file content:</p>
-    <button onclick="readFile('file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist')">
-        View MobileGestalt Cache
-    </button>
-    <button onclick="readFile('file://var/root/media/bypass.sh')">
-        View Bypass Script
-    </button>
-    <button onclick="readFile('file://Applications/Setup.app/Main')">
-        View Setup.app Main File
-    </button>
+    <h1>Command and Link Launcher</h1>
 
-    <h3>Direct Links to File Paths</h3>
-    <ul>
-        <li><a href="file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist" target="_blank">
+    <!-- Section 1: Prefs:// Commands -->
+    <div class="section">
+        <h2>System Settings (prefs://)</h2>
+        <button onclick="executeCommand('prefs://')">Open Settings</button>
+        <button onclick="executeCommand('prefs:root=Bluetooth')">Open Bluetooth Settings</button>
+        <button onclick="executeCommand('prefs:root=WIFI')">Open Wi-Fi Settings</button>
+        <button onclick="executeCommand('prefs:root=General')">Open General Settings</button>
+        <button onclick="executeCommand('prefs:root=Sounds')">Open Sounds Settings</button>
+    </div>
+
+    <!-- Section 2: file:// Commands -->
+    <div class="section">
+        <h2>File Commands (file://)</h2>
+        <button onclick="executeCommand('file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist')">
             Open MobileGestalt Cache
-        </a></li>
-        <li><a href="file://var/root/media/bypass.sh" target="_blank">
+        </button>
+        <button onclick="executeCommand('file://var/root/media/bypass.sh')">
             Open Bypass Script
-        </a></li>
-        <li><a href="file://Applications/Setup.app/Main" target="_blank">
+        </button>
+        <button onclick="executeCommand('file://Applications/Setup.app/Main')">
             Open Setup.app Main File
-        </a></li>
-    </ul>
-    <h2>File Content:</h2>
-    <pre id="fileContent">Select a file to view its content.</pre>
+        </button>
+    </div>
 
-    <hr>
+    <!-- Section 3: mailto:// Commands -->
+    <div class="section">
+        <h2>Email Links (mailto:)</h2>
+        <button onclick="executeCommand('mailto:example@example.com')">Send Email to example@example.com</button>
+        <button onclick="executeCommand('mailto:help@company.com?subject=Support&body=Hello')">Compose Support Email</button>
+    </div>
 
-    <!-- File Size Checker Section -->
-    <h2>Manual File Size Checker</h2>
-    <p>Enter the file path manually to check its size:</p>
-    <input type="text" id="filePathInput" placeholder="Enter file path (e.g., file://...)" style="width: 100%;">
-    <button onclick="getFileSize()">Check File Size</button>
-    <p id="fileSize">File size will appear here after checking.</p>
+    <!-- Section 4: tel:// Commands -->
+    <div class="section">
+        <h2>Phone Links (tel:)</h2>
+        <button onclick="executeCommand('tel:+1234567890')">Call +1234567890</button>
+        <button onclick="executeCommand('tel:112')">Call Emergency (112)</button>
+    </div>
+
+    <!-- Section 5: Other Custom Schemes -->
+    <div class="section">
+        <h2>Other Custom Commands</h2>
+        <button onclick="executeCommand('sms:+1234567890')">Send SMS to +1234567890</button>
+        <button onclick="executeCommand('facetime:+1234567890')">Facetime +1234567890</button>
+        <button onclick="executeCommand('camera://')">Open Camera</button>
+        <button onclick="executeCommand('maps://')">Open Maps</button>
+        <button onclick="executeCommand('http://example.com')">Open Example Website</button>
+    </div>
+
+    <!-- Section 6: Manual Input -->
+    <div class="section">
+        <h2>Manual Command Executor</h2>
+        <p>Enter a custom command or URL:</p>
+        <input type="text" id="customCommandInput" placeholder="Enter a command (e.g., prefs://, file://, etc.)" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <button onclick="executeCommand(document.getElementById('customCommandInput').value)">Execute Command</button>
+    </div>
 </body>
 </html>
