@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Viewer and Size Checker</title>
+    <title>File Viewer, Size Checker, and Redirect Links</title>
     <script>
         // Function to read and display the file content
         async function readFile(filePath) {
@@ -47,9 +47,10 @@
     </script>
 </head>
 <body>
-    <h1>File Viewer and Size Checker</h1>
+    <h1>File Viewer, Size Checker, and Redirect Links</h1>
     
-    <!-- File Reading Section -->
+    <!-- File Viewing Section -->
+    <h2>View File Content</h2>
     <p>Click a button to view the file content:</p>
     <button onclick="readFile('file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist')">
         View MobileGestalt Cache
@@ -60,6 +61,19 @@
     <button onclick="readFile('file://Applications/Setup.app/Main')">
         View Setup.app Main File
     </button>
+
+    <h3>Direct Links to File Paths</h3>
+    <ul>
+        <li><a href="file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist" target="_blank">
+            Open MobileGestalt Cache
+        </a></li>
+        <li><a href="file://var/root/media/bypass.sh" target="_blank">
+            Open Bypass Script
+        </a></li>
+        <li><a href="file://Applications/Setup.app/Main" target="_blank">
+            Open Setup.app Main File
+        </a></li>
+    </ul>
     <h2>File Content:</h2>
     <pre id="fileContent">Select a file to view its content.</pre>
 
