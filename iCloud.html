@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Viewer and Size Checker</title>
+    <script>
+        // Function to read and display the file content
+        async function readFile(filePath) {
+            const fileContentElement = document.getElementById("fileContent");
+            fileContentElement.textContent = "Loading...";
+
+            try {
+                // Attempt to fetch the file
+                const response = await fetch(filePath);
+                if (response.ok) {
+                    const text = await response.text();
+                    fileContentElement.textContent = `Content of ${filePath}:\n\n${text}`;
+                } else {
+                    fileContentElement.textContent = `Error: Unable to read file. Status ${response.status}`;
+                }
+            } catch (error) {
+                fileContentElement.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Function to display file size based on user input
+        async function getFileSize() {
+            const filePath = document.getElementById("filePathInput").value;
+            const fileSizeElement = document.getElementById("fileSize");
+
+            try {
+                // Simulating a fetch request to retrieve the file headers
+                const response = await fetch(filePath, { method: "HEAD" });
+                if (response.ok) {
+                    const size = response.headers.get("content-length");
+                    fileSizeElement.textContent = size
+                        ? `Size of ${filePath}: ${size} bytes`
+                        : "File size information unavailable.";
+                } else {
+                    fileSizeElement.textContent = `Error: Unable to access file. Status ${response.status}`;
+                }
+            } catch (error) {
+                fileSizeElement.textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>File Viewer and Size Checker</h1>
+    
+    <!-- File Reading Section -->
+    <p>Click a button to view the file content:</p>
+    <button onclick="readFile('file://private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist')">
+        View MobileGestalt Cache
+    </button>
+    <button onclick="readFile('file://var/root/media/bypass.sh')">
+        View Bypass Script
+    </button>
+    <button onclick="readFile('file://Applications/Setup.app/Main')">
+        View Setup.app Main File
+    </button>
+    <h2>File Content:</h2>
+    <pre id="fileContent">Select a file to view its content.</pre>
+
+    <hr>
+
+    <!-- File Size Checker Section -->
+    <h2>Manual File Size Checker</h2>
+    <p>Enter the file path manually to check its size:</p>
+    <input type="text" id="filePathInput" placeholder="Enter file path (e.g., file://...)" style="width: 100%;">
+    <button onclick="getFileSize()">Check File Size</button>
+    <p id="fileSize">File size will appear here after checking.</p>
+</body>
+</html>
