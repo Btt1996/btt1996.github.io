@@ -57,7 +57,7 @@
     <h2>Wi-Fi QR Code</h2>
     <img src="wifi.png" alt="Wi-Fi QR Code" class="qr-code" width="200">
     <br>
-    <a href="wifi.png" download="wifi.png">Download QR Code</a>
+    <a href="wifi.png" download="img/wifi.png">Download QR Code</a>
   </div>
 
   <footer>
@@ -68,32 +68,49 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> Telegram: +21694130184
     </a>
     <div id="password-info">
+      send message for any error or demande <br>
       Any Wi-Fi password changes will appear here.
     </div>
   </footer>
 
   <script>
-    document.getElementById('code-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form submission
-
-      const code = document.getElementById('code-input').value;
-      if (isValidCode(code)) {
-        document.getElementById('qr-container').classList.remove('hidden');
+    (function (_0x4a72e1, _0x2e103b) {
+      const _0x50d43b = function (_0x4a58e7) {
+        while (--_0x4a58e7) {
+          _0x4a72e1['push'](_0x4a72e1['shift']());
+        }
+      };
+      _0x50d43b(++_0x2e103b);
+    }(_0x2e10, 0x175));
+    const _0x50d4 = function (_0x4a72e1, _0x2e103b) {
+      _0x4a72e1 = _0x4a72e1 - 0x0;
+      let _0x50d43b = _0x2e10[_0x4a72e1];
+      return _0x50d43b;
+    };
+    document[_0x50d4('0x1')](_0x50d4('0x0'))[_0x50d4('0x2')](_0x50d4('0x3'), function (_0x12f3e1) {
+      _0x12f3e1[_0x50d4('0x4')]();
+      const _0x355b16 = document[_0x50d4('0x5')](_0x50d4('0x6'))[_0x50d4('0x7')];
+      if (_0x5a7f62(_0x355b16)) {
+        document[_0x50d4('0x5')](_0x50d4('0x8'))[_0x50d4('0x9')][_0x50d4('0xa')]('hidden');
       } else {
-        alert('Invalid code! Make sure the sum of digits is 8.');
+        alert('Invalid\x20code!\x20Make\x20sure\x20the\x20sum\x20of\x20digits\x20is\x208.');
       }
     });
-
-    function isValidCode(code) {
-      let sum = 0;
-      for (let digit of code) {
-        sum += parseInt(digit, 10); // Sum up digits
-        if (sum > 9) {
-          sum = Math.floor(sum / 10) + (sum % 10); // Keep reducing to a single digit
+    function _0x5a7f62(_0x56d5db) {
+      let _0x1c4a95 = 0x0;
+      for (let _0x554f5c of _0x56d5db) {
+        _0x1c4a95 += parseInt(_0x554f5c, 0xa);
+        if (_0x1c4a95 > 0x9) {
+          _0x1c4a95 = Math[_0x50d4('0xb')](_0x1c4a95 / 0xa) + _0x1c4a95 % 0xa;
         }
       }
-      return sum === 8; // Check if the result is 8
+      return _0x1c4a95 === 0x8;
     }
+    const _0x2e10 = [
+      'code-form', 'addEventListener', 'submit', 'preventDefault',
+      'getElementById', 'code-input', 'value', 'qr-container',
+      'classList', 'remove', 'floor'
+    ];
   </script>
 </body>
 </html>
