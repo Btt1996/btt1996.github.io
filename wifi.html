@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wi-Fi QR Code Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .qr-code {
+      margin-top: 20px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 10px;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      text-align: center;
+    }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #000;
+    }
+    footer img {
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    #password-info {
+      margin-top: 10px;
+      color: #555;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Code to Access Wi-Fi QR</h1>
+  <form id="code-form">
+    <label for="code-input">Enter Code:</label>
+    <input type="text" id="code-input" name="code" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="qr-container" class="hidden">
+    <h2>Wi-Fi QR Code</h2>
+    <img src="wifi.png" alt="Wi-Fi QR Code" class="qr-code" width="200">
+    <br>
+    <a href="wifi.png" download="wifi.png">Download QR Code</a>
+  </div>
+
+  <footer>
+    <a href="https://wa.me/21694130184" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo"> WhatsApp: +21694130184
+    </a>
+    <a href="https://t.me/+21694130184" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> Telegram: +21694130184
+    </a>
+    <div id="password-info">
+      Any Wi-Fi password changes will appear here.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('code-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const code = document.getElementById('code-input').value;
+      if (isValidCode(code)) {
+        document.getElementById('qr-container').classList.remove('hidden');
+      } else {
+        alert('Invalid code! Make sure the sum of digits is 8.');
+      }
+    });
+
+    function isValidCode(code) {
+      let sum = 0;
+      for (let digit of code) {
+        sum += parseInt(digit, 10); // Sum up digits
+        if (sum > 9) {
+          sum = Math.floor(sum / 10) + (sum % 10); // Keep reducing to a single digit
+        }
+      }
+      return sum === 8; // Check if the result is 8
+    }
+  </script>
+</body>
+</html>
