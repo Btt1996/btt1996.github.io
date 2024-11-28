@@ -43,13 +43,29 @@
       color: #555;
       font-size: 12px;
     }
+    .back-button {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      font-size: 18px;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
   <h1>Enter Code to Access Wi-Fi QR</h1>
   <form id="code-form">
     <label for="code-input">Enter Code:</label>
-    <input type="text" id="code-input" name="code" required>
+    <!-- Added input type="number" to restrict to numeric input only -->
+    <input type="number" id="code-input" name="code" required>
     <button type="submit">Submit</button>
   </form>
 
@@ -61,6 +77,7 @@
   </div>
 
   <footer>
+    <a> by Ahmed Taboubi </a>
     <a href="https://wa.me/21694130184" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo"> WhatsApp: +21694130184
     </a>
@@ -71,46 +88,35 @@
       send message for any error or demande <br>
       Any Wi-Fi password changes will appear here.
     </div>
+    <a href="https://btt1996.github.io/" class="back-button">Go Back to Website</a>
   </footer>
 
   <script>
-    (function (_0x4a72e1, _0x2e103b) {
-      const _0x50d43b = function (_0x4a58e7) {
-        while (--_0x4a58e7) {
-          _0x4a72e1['push'](_0x4a72e1['shift']());
-        }
-      };
-      _0x50d43b(++_0x2e103b);
-    }(_0x2e10, 0x175));
-    const _0x50d4 = function (_0x4a72e1, _0x2e103b) {
-      _0x4a72e1 = _0x4a72e1 - 0x0;
-      let _0x50d43b = _0x2e10[_0x4a72e1];
-      return _0x50d43b;
-    };
-    document[_0x50d4('0x1')](_0x50d4('0x0'))[_0x50d4('0x2')](_0x50d4('0x3'), function (_0x12f3e1) {
-      _0x12f3e1[_0x50d4('0x4')]();
-      const _0x355b16 = document[_0x50d4('0x5')](_0x50d4('0x6'))[_0x50d4('0x7')];
-      if (_0x5a7f62(_0x355b16)) {
-        document[_0x50d4('0x5')](_0x50d4('0x8'))[_0x50d4('0x9')][_0x50d4('0xa')]('hidden');
+    // Function to check if the sum of the digits is 8
+    function isValidCode(code) {
+      let sum = 0;
+      for (let i = 0; i < code.length; i++) {
+        sum += parseInt(code[i]);
+      }
+      // Keep reducing the sum until it's a single digit
+      while (sum > 9) {
+        sum = sum.toString().split('').reduce((acc, num) => acc + parseInt(num), 0);
+      }
+      return sum === 8;
+    }
+
+    // Handle the form submission
+    document.getElementById('code-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const codeInput = document.getElementById('code-input').value;
+
+      // Check if the code is valid
+      if (isValidCode(codeInput)) {
+        document.getElementById('qr-container').classList.remove('hidden');
       } else {
-        alert('Invalid\x20code!\x20Make\x20sure\x20the\x20sum\x20of\x20digits\x20is\x208.');
+        alert('Invalid code! Make sure the sum of the digits is 8.');
       }
     });
-    function _0x5a7f62(_0x56d5db) {
-      let _0x1c4a95 = 0x0;
-      for (let _0x554f5c of _0x56d5db) {
-        _0x1c4a95 += parseInt(_0x554f5c, 0xa);
-        if (_0x1c4a95 > 0x9) {
-          _0x1c4a95 = Math[_0x50d4('0xb')](_0x1c4a95 / 0xa) + _0x1c4a95 % 0xa;
-        }
-      }
-      return _0x1c4a95 === 0x8;
-    }
-    const _0x2e10 = [
-      'code-form', 'addEventListener', 'submit', 'preventDefault',
-      'getElementById', 'code-input', 'value', 'qr-container',
-      'classList', 'remove', 'floor'
-    ];
   </script>
 </body>
 </html>
