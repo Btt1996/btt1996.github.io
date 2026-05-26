@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahmed Taboubi — Data Scientist & AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #080a0f;
+    --surface: #0e1117;
+    --border: rgba(255,255,255,0.07);
+    --accent: #00e5a0;
+    --accent2: #5b6eff;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --card: #111520;
+    --glow: rgba(0,229,160,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  #cursor {
+    position: fixed; width: 12px; height: 12px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+    mix-blend-mode: screen;
+  }
+  #cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid rgba(0,229,160,0.4);
+    border-radius: 50%; pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
+  }
+  body:hover #cursor { opacity: 1; }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content:''; position:fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:1; opacity:0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(20px);
+    background: rgba(8,10,15,0.6);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    letter-spacing: 0.05em; color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-ai-btn {
+    background: var(--accent); color: var(--bg);
+    border: none; padding: 0.5rem 1.2rem; border-radius: 2rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.75rem; letter-spacing: 0.1em; cursor: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-ai-btn:hover { transform: translateY(-1px); box-shadow: 0 0 24px var(--glow); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%;
+  }
+  .hero-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-label::before {
+    content:''; display:inline-block; width:2rem; height:1px; background: var(--accent);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--accent);
+  }
+  .hero-desc {
+    color: var(--muted); line-height: 1.8; font-size: 0.9rem;
+    max-width: 420px; margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: var(--bg);
+    border: none; padding: 0.85rem 2rem; border-radius: 0.25rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.8rem; letter-spacing: 0.08em;
+    cursor: none; text-decoration: none; display: inline-block;
+    transition: box-shadow 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { box-shadow: 0 0 32px var(--glow); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border); padding: 0.85rem 2rem; border-radius: 0.25rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.8rem; letter-spacing: 0.08em;
+    cursor: none; text-decoration: none; display: inline-block;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* HERO VISUAL */
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .avatar-frame {
+    width: 320px; height: 320px; border-radius: 1rem;
+    background: linear-gradient(135deg, var(--card), #1a2035);
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .avatar-initials {
+    font-family: 'Syne', sans-serif; font-size: 6rem; font-weight: 800;
+    color: var(--accent); opacity: 0.15; user-select: none;
+  }
+  .avatar-scan {
+    position: absolute; top:0; left:0; right:0;
+    height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: scan 3s ease-in-out infinite;
+  }
+  @keyframes scan { 0%,100%{top:0;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{top:100%} }
+  .hero-orbit {
+    position: absolute; width: 420px; height: 420px;
+    border: 1px dashed rgba(0,229,160,0.12); border-radius: 50%;
+    animation: spin 20s linear infinite;
+  }
+  .hero-orbit-dot {
+    position: absolute; top: -5px; left: 50%;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--accent);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .stats-bar {
+    position: absolute; bottom: -2rem; left: 50%; transform: translateX(-50%);
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 0.5rem; padding: 1rem 2rem;
+    display: flex; gap: 2rem; white-space: nowrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 1.5rem; color: var(--accent); display: block;
+  }
+  .stat-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; position: relative; z-index: 2; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before { content:'//'; opacity:0.5; }
+  h2 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.02em;
+    margin-bottom: 3.5rem; line-height: 1.1;
+  }
+  h2 span { color: var(--accent); }
+
+  /* SKILLS */
+  #skills { background: linear-gradient(180deg, var(--bg), var(--surface)); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .skill-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 0.75rem; padding: 1.75rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .skill-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-4px); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .skill-name {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.9rem; margin-bottom: 0.5rem;
+  }
+  .skill-bar-bg {
+    background: rgba(255,255,255,0.05); border-radius: 2rem;
+    height: 4px; overflow: hidden; margin-top: 1rem;
+  }
+  .skill-bar-fill {
+    height: 100%; border-radius: 2rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  }
+  .skill-pct { font-size: 0.7rem; color: var(--muted); margin-top: 0.4rem; }
+
+  /* TIMELINE */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content:''; position:absolute; left:0; top:0; bottom:0;
+    width:1px; background: linear-gradient(180deg, var(--accent), transparent);
+  }
+  .tl-item { position: relative; padding: 0 0 3rem 2.5rem; }
+  .tl-dot {
+    position: absolute; left: -2.3rem; top: 0.3rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 12px var(--glow);
+  }
+  .tl-date { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.5rem; }
+  .tl-title {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1rem; margin-bottom: 0.4rem;
+  }
+  .tl-sub { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+  /* CERTS */
+  #certifications { background: var(--bg); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 0.75rem; padding: 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none; color: inherit;
+  }
+  .cert-card:hover { border-color: rgba(91,110,255,0.4); transform: translateY(-3px); }
+  .cert-icon {
+    width: 44px; height: 44px; border-radius: 0.5rem;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .cert-info {}
+  .cert-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .cert-issuer { font-size: 0.72rem; color: var(--muted); }
+  .cert-verify { font-size: 0.65rem; color: var(--accent2); margin-top: 0.5rem; }
+
+  /* AI CHAT */
+  #ai-section {
+    background: linear-gradient(135deg, #090d1a, #0a0f1e);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .ai-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  .ai-intro p { color: var(--muted); line-height: 1.8; font-size: 0.88rem; margin-bottom: 1.5rem; }
+  .ai-features { display: flex; flex-direction: column; gap: 1rem; }
+  .ai-feature {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem; background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border); border-radius: 0.5rem;
+  }
+  .ai-feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .ai-feature-text {}
+  .ai-feature-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .ai-feature-sub { font-size: 0.75rem; color: var(--muted); }
+
+  /* CHAT WIDGET */
+  .chat-widget {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 1rem; overflow: hidden;
+    display: flex; flex-direction: column; height: 480px;
+  }
+  .chat-header {
+    padding: 1rem 1.5rem; background: rgba(0,229,160,0.05);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .chat-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+  .chat-header-info {}
+  .chat-header-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; }
+  .chat-header-status { font-size: 0.65rem; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .chat-messages {
+    flex: 1; overflow-y: auto; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .msg { max-width: 80%; font-size: 0.82rem; line-height: 1.6; }
+  .msg-ai {
+    background: rgba(0,229,160,0.06); border: 1px solid rgba(0,229,160,0.12);
+    border-radius: 0 1rem 1rem 1rem; padding: 0.75rem 1rem; align-self: flex-start;
+  }
+  .msg-user {
+    background: rgba(91,110,255,0.12); border: 1px solid rgba(91,110,255,0.2);
+    border-radius: 1rem 0 1rem 1rem; padding: 0.75rem 1rem; align-self: flex-end;
+  }
+  .msg-typing {
+    display: flex; gap: 4px; align-items: center; padding: 0.75rem 1rem;
+    background: rgba(0,229,160,0.06); border: 1px solid rgba(0,229,160,0.12);
+    border-radius: 0 1rem 1rem 1rem; align-self: flex-start; width: fit-content;
+  }
+  .typing-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+    animation: typingBounce 1.2s infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+  .chat-input-area {
+    padding: 1rem 1.5rem; border-top: 1px solid var(--border);
+    display: flex; gap: 0.75rem;
+  }
+  .chat-input {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 0.5rem; padding: 0.65rem 1rem;
+    color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.8rem;
+    outline: none; transition: border-color 0.2s; resize: none;
+  }
+  .chat-input:focus { border-color: rgba(0,229,160,0.4); }
+  .chat-send {
+    background: var(--accent); color: var(--bg);
+    border: none; border-radius: 0.5rem; padding: 0 1rem;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem;
+    cursor: none; transition: opacity 0.2s;
+  }
+  .chat-send:hover { opacity: 0.85; }
+  .chat-send:disabled { opacity: 0.4; }
+  .quick-prompts {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 0 1.5rem 0.75rem;
+  }
+  .quick-prompt {
+    font-size: 0.68rem; background: transparent;
+    border: 1px solid var(--border); color: var(--muted);
+    border-radius: 2rem; padding: 0.3rem 0.8rem;
+    cursor: none; transition: border-color 0.2s, color 0.2s;
+    font-family: 'DM Mono', monospace;
+  }
+  .quick-prompt:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* CONTACT */
+  #contact { background: var(--surface); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.5rem; background: var(--card);
+    border: 1px solid var(--border); border-radius: 0.5rem;
+    color: var(--text); text-decoration: none;
+    transition: border-color 0.3s, transform 0.2s;
+    font-size: 0.82rem;
+  }
+  .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-link-icon { font-size: 1.2rem; }
+  .contact-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.4; color: var(--text); opacity: 0.8;
+  }
+  .contact-quote span { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.72rem; color: var(--muted); z-index: 2; position: relative;
+  }
+
+  /* AMBIENT BG */
+  .ambient {
+    position: fixed; pointer-events: none; z-index: 0;
+    border-radius: 50%; filter: blur(80px); opacity: 0.25;
+  }
+  .ambient-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,229,160,0.3), transparent 70%);
+    top: -200px; right: -100px;
+    animation: float1 12s ease-in-out infinite;
+  }
+  .ambient-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(91,110,255,0.2), transparent 70%);
+    bottom: 10%; left: -150px;
+    animation: float2 15s ease-in-out infinite;
+  }
+  @keyframes float1 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(40px) scale(1.05)} }
+  @keyframes float2 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.03)} }
+
+  /* ENTRANCE ANIMATIONS */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 6rem; }
+    .hero-grid, .ai-layout, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-visual { display: none; }
+    .stats-bar { position: static; transform: none; margin-top: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AT.</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#ai-section">AI Chat</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-ai-btn" onclick="document.getElementById('ai-section').scrollIntoView({behavior:'smooth'})">Talk to AI ✦</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-label reveal">Data Scientist & AI Engineer — Tunisia</div>
+      <h1 class="reveal">Ahmed<br /><em>Taboubi</em></h1>
+      <p class="hero-desc reveal">
+        Building intelligent systems from Beja, Tunisia. Specializing in machine learning, business intelligence, and AI architectures. Currently studying at ENIT & open to remote opportunities.
+      </p>
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn-primary">Get in touch →</a>
+        <a href="https://www.linkedin.com/in/ahmedbtt/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-orbit">
+        <div class="hero-orbit-dot"></div>
+      </div>
+      <div class="avatar-frame">
+        <span class="avatar-initials">AT</span>
+        <div class="avatar-scan"></div>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-num">25+</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Badges</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-tag reveal">Expertise</div>
+    <h2 class="reveal">What I <span>do best</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Data Visualization</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="90"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Statistical Analysis</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="80"></div></div>
+        <div class="skill-pct">80%</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐘</div>
+        <div class="skill-name">Big Data</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="75"></div></div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-name">Machine Learning</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="82"></div></div>
+        <div class="skill-pct">82%</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">Data Management</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="95"></div></div>
+        <div class="skill-pct">95%</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python & Jupyter</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="92"></div></div>
+        <div class="skill-pct">92%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-tag reveal">Journey</div>
+    <h2 class="reveal">My <span>Timeline</span></h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 — Present</div>
+        <div class="tl-title">Master's in Intelligent Technologies</div>
+        <div class="tl-sub">École Nationale d'Ingénieurs de Tunis (ENIT) — Deepening expertise in AI, systems engineering, and intelligent architectures.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2022 — Present</div>
+        <div class="tl-title">Freelance Data Analyst</div>
+        <div class="tl-sub">Working across Upwork, Fiverr, and other platforms on data analytics, dashboards, and ML consulting projects for international clients.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2017 — Present</div>
+        <div class="tl-title">Self-driven Learning — 25+ Certifications</div>
+        <div class="tl-sub">IBM Data Science, Stanford ML, Google Analytics, Deep Learning with GPUs, and over a dozen more from Coursera, Kaggle, and CognitiveClass.ai.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2017 — 2022</div>
+        <div class="tl-title">Bachelor's in Business Intelligence</div>
+        <div class="tl-sub">University of Manar, Tunis — Built a strong foundation in BI systems, data warehousing, and analytics.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2016</div>
+        <div class="tl-title">Baccalauréat — Experimental Sciences</div>
+        <div class="tl-sub">Ibn Haithem High School — Where the love for science began.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-tag reveal">Credentials</div>
+    <h2 class="reveal">Certified <span>Excellence</span></h2>
+    <div class="certs-grid">
+      <a class="cert-card reveal" href="https://www.coursera.org/account/accomplishments/verify/XP7EEM6JQRLW" target="_blank">
+        <div class="cert-icon">🔬</div>
+        <div class="cert-info">
+          <div class="cert-title">IBM Data Science Professional</div>
+          <div class="cert-issuer">IBM / Coursera</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://www.coursera.org/account/accomplishments/verify/K6JELNBK3F82" target="_blank">
+        <div class="cert-icon">🧠</div>
+        <div class="cert-info">
+          <div class="cert-title">Machine Learning Specialization</div>
+          <div class="cert-issuer">Stanford University / Coursera</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://skillshop.credential.net/a4e4b0bf-a7eb-49ac-b143-b6070c0f94ae" target="_blank">
+        <div class="cert-icon">📉</div>
+        <div class="cert-info">
+          <div class="cert-title">Google Analytics Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://courses.cognitiveclass.ai/certificates/203104bd46d6473d882cc0ee4cc864fc" target="_blank">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-info">
+          <div class="cert-title">Accelerating Deep Learning with GPUs</div>
+          <div class="cert-issuer">IBM CognitiveClass.ai</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://www.kaggle.com/learn/certification/btt1996/geospatial-analysis" target="_blank">
+        <div class="cert-icon">🌍</div>
+        <div class="cert-info">
+          <div class="cert-title">Geospatial Analysis</div>
+          <div class="cert-issuer">Kaggle</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://courses.cognitiveclass.ai/certificates/cdd99a7e4a09473192964f3f3b9a9d94" target="_blank">
+        <div class="cert-icon">🏗️</div>
+        <div class="cert-info">
+          <div class="cert-title">Big Data 101</div>
+          <div class="cert-issuer">IBM CognitiveClass.ai</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://www.efset.org/cert/NEKY3J" target="_blank">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-info">
+          <div class="cert-title">English C2 Proficient</div>
+          <div class="cert-issuer">EF SET</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://courses.cognitiveclass.ai/certificates/24d35f085da746b2bd9717ce8a9cae01" target="_blank">
+        <div class="cert-icon">🔒</div>
+        <div class="cert-info">
+          <div class="cert-title">Data Privacy Fundamentals</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-verify">Verify ↗</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section id="ai-section">
+  <div class="section-inner">
+    <div class="ai-layout">
+      <div class="ai-intro">
+        <div class="section-tag reveal">AI Feature</div>
+        <h2 class="reveal">Ask my <span>AI twin</span></h2>
+        <p class="reveal">
+          Powered by Claude AI, this assistant knows my background, skills, and work. Ask it anything — about my experience, projects, or how I might fit your team.
+        </p>
+        <div class="ai-features">
+          <div class="ai-feature reveal">
+            <div class="ai-feature-icon">💼</div>
+            <div class="ai-feature-text">
+              <div class="ai-feature-title">Career & Experience</div>
+              <div class="ai-feature-sub">Ask about my projects, roles, and technical background</div>
+            </div>
+          </div>
+          <div class="ai-feature reveal">
+            <div class="ai-feature-icon">🎓</div>
+            <div class="ai-feature-text">
+              <div class="ai-feature-title">Skills & Certifications</div>
+              <div class="ai-feature-sub">Get details on my technical skills and learning journey</div>
+            </div>
+          </div>
+          <div class="ai-feature reveal">
+            <div class="ai-feature-icon">🤝</div>
+            <div class="ai-feature-text">
+              <div class="ai-feature-title">Collaboration</div>
+              <div class="ai-feature-sub">Explore how we might work together</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-widget reveal">
+        <div class="chat-header">
+          <div class="chat-avatar">🤖</div>
+          <div class="chat-header-info">
+            <div class="chat-header-name">Ahmed's AI Assistant</div>
+            <div class="chat-header-status"><span class="status-dot"></span> Online — powered by Claude</div>
+          </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-ai">
+            Hi! I'm Ahmed's AI assistant. I know his background, skills, certifications, and projects in detail. What would you like to know?
+          </div>
+        </div>
+        <div class="quick-prompts">
+          <button class="quick-prompt" onclick="sendQuick(this)">What are your skills?</button>
+          <button class="quick-prompt" onclick="sendQuick(this)">Tell me about your projects</button>
+          <button class="quick-prompt" onclick="sendQuick(this)">Are you open to work?</button>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" id="chatInput" rows="1" placeholder="Ask me anything about Ahmed..." onkeydown="handleKey(event)"></textarea>
+          <button class="chat-send" id="chatSend" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag reveal">Contact</div>
+        <h2 class="reveal">Let's <span>connect</span></h2>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/ahmedbtt/" target="_blank" class="contact-link reveal">
+            <span class="contact-link-icon">💼</span>
+            <span>LinkedIn — ahmedbtt</span>
+          </a>
+          <a href="mailto:taboubiahmed@mail.com" class="contact-link reveal">
+            <span class="contact-link-icon">✉️</span>
+            <span>taboubiahmed@mail.com</span>
+          </a>
+          <a href="https://github.com/btt1996" target="_blank" class="contact-link reveal">
+            <span class="contact-link-icon">🐙</span>
+            <span>GitHub — btt1996</span>
+          </a>
+          <a href="https://twitter.com/ahmedtaboubi/" target="_blank" class="contact-link reveal">
+            <span class="contact-link-icon">𝕏</span>
+            <span>@ahmedtaboubi</span>
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="contact-quote">
+          "Data is the <span>new oil</span> — and I know how to refine it."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Ahmed Taboubi — Beja, Tunisia 🇹🇳</span>
+  <span>Built with passion & AI ✦</span>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+function animateRing(){
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.skill-card,.cert-card,.contact-link').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.opacity='0.5';});
+  el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='1';});
+});
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'), i*60);
+    }
+  });
+},{threshold:0.12});
+reveals.forEach(el=>obs.observe(el));
+
+// SKILL BARS
+const barObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const bar = e.target.querySelector('.skill-bar-fill');
+      if(bar){ bar.style.width = bar.dataset.pct + '%'; }
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.skill-card').forEach(el=>barObs.observe(el));
+
+// AI CHAT
+const SYSTEM_PROMPT = `You are Ahmed Taboubi's personal AI assistant on his portfolio website. You know everything about him:
+
+NAME: Ahmed Taboubi (also goes by Bouhmid)
+LOCATION: Beja, Tunisia
+AGE: Born August 3, 1996 (29 years old)
+LANGUAGES: Arabic (native), French (fluent), English (C2), learning Spanish and German
+
+EDUCATION:
+- Bachelor's in Business Intelligence, University of Manar, Tunis (2017-2022)
+- Incomplete Master's at Carthage
+- Currently: Master's in Intelligent Technologies at ENIT (École Nationale d'Ingénieurs de Tunis, 2023-present)
+
+CERTIFICATIONS (25+):
+- IBM Data Science Professional Certificate (Coursera)
+- Stanford University Machine Learning Specialization (Coursera)
+- Google Analytics Certification
+- Accelerating Deep Learning with GPUs (IBM)
+- Geospatial Analysis (Kaggle)
+- Big Data 101 (IBM)
+- English C2 Proficient (EF SET)
+- Data Privacy Fundamentals (IBM)
+- ML with Python, Data Science with Python, and 10+ IBM badges
+
+SKILLS:
+- Data Visualization (90%), Statistical Analysis (80%), Big Data (75%), Machine Learning (82%), Data Management (95%), Python & Jupyter (99%)
+- Tools: Python, pandas, NumPy, scikit-learn, Jupyter, SQL, Tableau, Power BI
+
+WORK:
+- Freelance Data Analyst on Upwork and Fiverr (2022-present) for international clients
+- Currently job hunting, open to remote/hybrid roles in data science, ML, BI, or BI consulting
+- Built: Adaptive Agent Mesh (AAM) multi-agent AI architecture concept (academic paper)
+- Built: German language learning exam apps with multi-provider AI (Claude, GPT, Gemini, Qwen)
+- Explored: AI agent architectures, style transfer apps (Mimic Me), and original cosmology theory (Closed Loop Cosmology)
+
+INTERESTS: AI agents, brain & memory theory, Tunisian history, origins of religion, Umm Kulthum (memorized Enta Omri at age 5), quantum physics, comparative religion
+
+CONTACT: taboubiahmed@mail.com | LinkedIn: ahmedbtt | GitHub: btt1996
+
+Be friendly, concise, and professional. Answer questions about Ahmed's skills, experience, availability, and personality. If asked about hiring, express genuine interest and suggest contacting him directly. Keep answers under 3 sentences unless detailed info is needed.`;
+
+let messages = [];
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  sendBtn.disabled = true;
+  appendMsg(text, 'user');
+  messages.push({role:'user', content: text});
+
+  const typingEl = appendTyping();
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: messages
+      })
+    });
+    const data = await resp.json();
+    const reply = data.content?.[0]?.text || 'Sorry, I could not get a response.';
+    messages.push({role:'assistant', content: reply});
+    typingEl.remove();
+    appendMsg(reply, 'ai');
+  } catch(e) {
+    typingEl.remove();
+    appendMsg('Connection error. Please try again.', 'ai');
+  }
+  sendBtn.disabled = false;
+}
+
+function appendMsg(text, type) {
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `msg msg-${type}`;
+  div.textContent = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+  return div;
+}
+
+function appendTyping() {
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg-typing';
+  div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+  return div;
+}
+
+function handleKey(e) {
+  if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+function sendQuick(btn) {
+  document.getElementById('chatInput').value = btn.textContent;
+  sendMessage();
+}
+</script>
+</body>
+</html>
